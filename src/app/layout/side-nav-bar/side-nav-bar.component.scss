@@ -88,24 +88,25 @@ $transition-easing: ease;
   .menu-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
+    padding: 0 8px;
 
     .menu-item {
       color: $nav-text-color;
-      padding: $spacing-sm $spacing-lg;
+      padding: $spacing-sm $spacing-lg $spacing-sm $spacing-sm;
       text-decoration: none;
       transition: all $transition-duration $transition-easing;
       display: flex;
       align-items: center;
       gap: $spacing-md;
-      border-radius: 0;
+      border-radius: 8px;
       position: relative;
       margin: 0;
       font-size: 0.95rem;
 
       &:hover {
-        background-color: #f5f5f5;
-        color: $nav-text-hover;
+        background-color: #EDF9EF;
+        color: #5A6270;
       }
 
       &.active {
@@ -113,15 +114,6 @@ $transition-easing: ease;
         color: $nav-active-color;
         font-weight: 500;
 
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 4px;
-          background-color: $nav-active-border;
-        }
       }
 
       i {
@@ -163,24 +155,25 @@ $transition-easing: ease;
   .menu-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
+    padding: 0 8px;
 
     .menu-item {
       color: $nav-text-color;
-      padding: $spacing-sm $spacing-lg;
+      padding: $spacing-sm $spacing-lg $spacing-sm $spacing-sm;
       text-decoration: none;
       transition: all $transition-duration $transition-easing;
       display: flex;
       align-items: center;
       gap: $spacing-md;
-      border-radius: 0;
+      border-radius: 8px;
       position: relative;
       margin: 0;
       font-size: 0.95rem;
 
       &:hover {
-        background-color: #f5f5f5;
-        color: $nav-text-hover;
+        background-color: #EDF9EF;
+        color: #5A6270;
       }
 
       &.active {
@@ -188,15 +181,6 @@ $transition-easing: ease;
         color: $nav-active-color;
         font-weight: 500;
 
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 4px;
-          background-color: $nav-active-border;
-        }
       }
 
       i {

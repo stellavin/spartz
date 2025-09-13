@@ -30,9 +30,9 @@ export class SideNavBarComponent {
   navItems: NavItem[] = [
     { label: 'Lorem', icon: 'pi pi-th-large', route: '/dashboard' },
     { label: 'Lorem', icon: 'pi pi-exclamation-triangle', route: '/alerts' },
-    { label: 'Lorem', icon: 'pi pi-cube', route: '/assets' },
+    { label: 'Lorem', icon: 'pi pi-box', route: '/assets' },
     { label: 'Lorem', icon: 'pi pi-arrows-alt', route: '/expand' },
-    { label: 'Lorem', icon: 'pi pi-plug', route: '/connections' },
+    { label: 'Lorem', icon: 'pi pi-link', route: '/connections' },
     { label: 'Lorem', icon: 'pi pi-file', route: '/reports' },
     { label: 'Lorem', icon: 'pi pi-filter', route: '/filters' }
   ];
