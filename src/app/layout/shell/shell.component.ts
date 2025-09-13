@@ -23,11 +23,11 @@ import { SideNavBarComponent } from '../side-nav-bar/side-nav-bar.component';
 export class ShellComponent {
   sidebarVisible = signal(true);
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.sidebarVisible.update(visible => !visible);
   }
 
-  onSideNavToggle() {
+  onSideNavToggle(): void {
     this.toggleSidebar();
   }
 }

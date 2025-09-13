@@ -7,7 +7,8 @@
       [rounded]="true"
       size="small"
       (onClick)="onToggleCollapse()"
-      class="toggle-btn">
+      class="toggle-btn"
+      [attr.aria-label]="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'">
     </p-button>
   </div>
 
@@ -15,14 +16,16 @@
   <nav class="nav-menu">
     <div class="menu-items">
       <a 
-        *ngFor="let item of navItems" 
+        *ngFor="let item of navItems; trackBy: trackByRoute" 
         [routerLink]="item.route"
         class="menu-item"
         [class.active]="isActiveRoute(item.route)"
-        [title]="isCollapsed ? item.label : ''">
-        <i [class]="item.icon"></i>
+        [title]="isCollapsed ? item.label : ''"
+        [attr.aria-label]="item.label"
+        role="menuitem">
+        <i [class]="item.icon" [attr.aria-hidden]="true"></i>
         <span *ngIf="!isCollapsed">{{ item.label }}</span>
-        <span *ngIf="item.badge && !isCollapsed" class="badge">{{ item.badge }}</span>
+        <span *ngIf="item.badge && !isCollapsed" class="badge" [attr.aria-label]="'Badge: ' + item.badge">{{ item.badge }}</span>
       </a>
     </div>
   </nav>
@@ -31,14 +34,16 @@
   <nav class="bottom-nav-menu">
     <div class="menu-items">
       <a 
-        *ngFor="let item of bottomNavItems" 
+        *ngFor="let item of bottomNavItems; trackBy: trackByRoute" 
         [routerLink]="item.route"
         class="menu-item"
         [class.active]="isActiveRoute(item.route)"
-        [title]="isCollapsed ? item.label : ''">
-        <i [class]="item.icon"></i>
+        [title]="isCollapsed ? item.label : ''"
+        [attr.aria-label]="item.label"
+        role="menuitem">
+        <i [class]="item.icon" [attr.aria-hidden]="true"></i>
         <span *ngIf="!isCollapsed">{{ item.label }}</span>
-        <span *ngIf="item.badge && !isCollapsed" class="badge">{{ item.badge }}</span>
+        <span *ngIf="item.badge && !isCollapsed" class="badge" [attr.aria-label]="'Badge: ' + item.badge">{{ item.badge }}</span>
       </a>
     </div>
   </nav>
@@ -57,8 +62,10 @@
     <button 
       (click)="onLogout()"
       class="logout-btn"
-      [title]="isCollapsed ? 'Logout' : ''">
-      <i class="pi pi-external-link"></i>
+      [title]="isCollapsed ? 'Logout' : ''"
+      [attr.aria-label]="'Logout'"
+      type="button">
+      <i class="pi pi-external-link" [attr.aria-hidden]="true"></i>
     </button>
   </div>
 

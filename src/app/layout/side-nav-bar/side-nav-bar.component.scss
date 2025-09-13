@@ -1,28 +1,20 @@
-// SCSS Variables - Matching the image design
-$nav-width: 240px;
-$nav-width-collapsed: 60px;
-$nav-bg-color: #ffffff;
-$nav-border-color: #e5e5e5;
-$nav-text-color: #666666;
-$nav-text-hover: #333333;
-$nav-active-bg: #e8f5e8;
-$nav-active-color: #2d5a2d;
-$nav-active-border: #2d5a2d;
-$nav-toggle-bg: #00732E;
-$nav-toggle-color: #ffffff;
-$nav-user-bg: #f8f9fa;
-$nav-logout-color: #666666;
-$nav-shadow: 0 0 0 1px #e5e5e5;
+@import '../../core/styles/variables';
 
-$spacing-xs: 0.25rem;
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 1.5rem;
-$spacing-xl: 2rem;
-
-$border-radius: 0;
-$transition-duration: 0.3s;
-$transition-easing: ease;
+// Component-specific variables
+$nav-width: $sidebar-width;
+$nav-width-collapsed: $sidebar-width-collapsed;
+$nav-bg-color: $color-background;
+$nav-border-color: $color-border;
+$nav-text-color: $color-text;
+$nav-text-hover: $color-text-hover;
+$nav-active-bg: $color-background-active;
+$nav-active-color: $color-secondary;
+$nav-active-border: $color-secondary;
+$nav-toggle-bg: $color-primary;
+$nav-toggle-color: $color-background;
+$nav-user-bg: $color-background;
+$nav-logout-color: $color-text;
+$nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
 // Main Container
 .side-nav-container {
@@ -319,49 +311,14 @@ $transition-easing: ease;
   }
 }
 
-// Custom Scrollbar
-.nav-menu::-webkit-scrollbar {
-  width: 4px;
-}
+// Custom Scrollbar - simplified
+.nav-menu::-webkit-scrollbar { width: 4px; }
+.nav-menu::-webkit-scrollbar-track { background: transparent; }
+.nav-menu::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 2px; }
+.nav-menu::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
-.nav-menu::-webkit-scrollbar-track {
-  background: transparent;
-}
+// PrimeNG Overrides - simplified
+:host ::ng-deep .p-button.p-button-text { box-shadow: none; }
+:host ::ng-deep .p-button:focus { outline: none; }
 
-.nav-menu::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 2px;
-
-  &:hover {
-    background: #a8a8a8;
-  }
-}
-
-// PrimeNG Overrides
-:host ::ng-deep {
-  .p-button {
-    &.p-button-text {
-      box-shadow: none;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-}
-
-// Animation for smooth transitions
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.menu-item {
-  animation: slideIn 0.2s ease-out;
-}
+// Removed animation to reduce file size
