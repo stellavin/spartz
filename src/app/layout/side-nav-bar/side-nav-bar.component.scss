@@ -49,17 +49,13 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
   .toggle-btn {
     background-color: $nav-toggle-bg !important;
     color: $nav-toggle-color !important;
-    border: 2px solid white !important;
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
+    width: 24px !important;
+    height: 24px !important;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all $transition-duration $transition-easing;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
     &:hover {
       background-color: darken($nav-toggle-bg, 10%) !important;
@@ -68,6 +64,17 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
     &:focus {
       box-shadow: 0 0 0 2px rgba($nav-toggle-bg, 0.3) !important;
+    }
+
+    // Center the icon properly
+    ::ng-deep .p-button-icon {
+      color: white !important;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
     }
   }
 }
