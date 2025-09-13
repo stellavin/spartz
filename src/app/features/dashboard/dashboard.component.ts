@@ -1,36 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule],
   template: `
     <div class="dashboard-container">
-      <!-- Dashboard Header -->
-      <header class="dashboard-header">
-        <div class="header-content">
-          <h1 class="dashboard-title">Dashboard</h1>
-          <p class="dashboard-subtitle">Monitor your system performance and analytics</p>
-        </div>
-        
-        <div class="header-actions">
-          <p-button 
-            [loading]="isLoading()"
-            (onClick)="refreshData()"
-            icon="pi pi-refresh"
-            label="Refresh"
-            [text]="true">
-          </p-button>
-          
-          <div class="last-updated" *ngIf="!isLoading()">
-            <i class="pi pi-clock"></i>
-            Last updated: {{ lastUpdated() | date:'short' }}
-          </div>
-        </div>
-      </header>
-
       <!-- Dashboard Content -->
       <div class="dashboard-content">
         <div class="welcome-message">
@@ -45,41 +21,8 @@ import { ButtonModule } from 'primeng/button';
       padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .dashboard-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #e9ecef;
-    }
-
-    .dashboard-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin: 0;
-    }
-
-    .dashboard-subtitle {
-      color: #6c757d;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .last-updated {
-      color: #6c757d;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      background-color: #FAFAFA;
+      min-height: 100vh;
     }
 
     .dashboard-content {
@@ -110,16 +53,4 @@ import { ButtonModule } from 'primeng/button';
   `]
 })
 export class DashboardComponent {
-  isLoading = signal(false);
-  lastUpdated = signal(new Date());
-
-  refreshData() {
-    this.isLoading.set(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      this.isLoading.set(false);
-      this.lastUpdated.set(new Date());
-    }, 2000);
-  }
 }
