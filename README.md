@@ -1,13 +1,11 @@
 # Spikerz - Simple Angular 20+ UI
 
-A minimal Angular 20+ application showing "Hello spartz this is pure UI no database"
+A minimal Angular 20+ application showing "Spartz Dashboard"
 
 ## Features
 
 - **Angular 20+** with standalone components
 - **TypeScript** with strict configuration
-- **Pure UI** - No database, no complex features
-- **Simple and clean** - Just the essential Angular setup
 
 ## Project Structure
 
