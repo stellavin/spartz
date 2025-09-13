@@ -17,8 +17,21 @@
   <!-- Navigation Items -->
   <nav class="nav-menu">
     <div class="menu-items">
+      <!-- Top group of navigation items -->
       <a 
         *ngFor="let item of navItems" 
+        [routerLink]="item.route"
+        class="menu-item"
+        [class.active]="isActiveRoute(item.route)"
+        [title]="isCollapsed ? item.label : ''">
+        <i [class]="item.icon"></i>
+        <span *ngIf="!isCollapsed">{{ item.label }}</span>
+        <span *ngIf="item.badge && !isCollapsed" class="badge">{{ item.badge }}</span>
+      </a>
+      
+      <!-- Bottom group of navigation items -->
+      <a 
+        *ngFor="let item of bottomNavItems" 
         [routerLink]="item.route"
         class="menu-item"
         [class.active]="isActiveRoute(item.route)"

@@ -4,7 +4,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #f8f9fa;
+  background-color: #000000;
 }
 
 // Fixed Sidebar
@@ -155,6 +155,7 @@
   flex-direction: column;
   overflow: hidden;
   background-color: #ffffff;
+  margin-left: 0;
 }
 
 .main-header {
@@ -209,7 +210,7 @@
   flex: 1;
   overflow-y: auto;
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   
   // Custom scrollbar
   &::-webkit-scrollbar {

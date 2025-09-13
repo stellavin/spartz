@@ -1,17 +1,18 @@
-// SCSS Variables
+// SCSS Variables - Matching the image design
 $nav-width: 280px;
 $nav-width-collapsed: 80px;
 $nav-bg-color: #ffffff;
-$nav-border-color: #e9ecef;
-$nav-text-color: #6c757d;
-$nav-text-hover: #495057;
+$nav-border-color: #e5e5e5;
+$nav-text-color: #666666;
+$nav-text-hover: #333333;
 $nav-active-bg: #e8f5e8;
-$nav-active-color: #28a745;
-$nav-active-border: #28a745;
-$nav-toggle-bg: #28a745;
+$nav-active-color: #2d5a2d;
+$nav-active-border: #2d5a2d;
+$nav-toggle-bg: #2d5a2d;
 $nav-toggle-color: #ffffff;
 $nav-user-bg: #f8f9fa;
-$nav-logout-color: #dc3545;
+$nav-logout-color: #666666;
+$nav-shadow: 0 0 0 1px #e5e5e5;
 
 $spacing-xs: 0.25rem;
 $spacing-sm: 0.5rem;
@@ -19,7 +20,7 @@ $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
 
-$border-radius: 0.375rem;
+$border-radius: 0;
 $transition-duration: 0.3s;
 $transition-easing: ease;
 
@@ -34,6 +35,7 @@ $transition-easing: ease;
   transition: width $transition-duration $transition-easing;
   position: relative;
   z-index: 1000;
+  box-shadow: $nav-shadow;
 
   &.collapsed {
     width: $nav-width-collapsed;
@@ -55,6 +57,7 @@ $transition-easing: ease;
   justify-content: space-between;
   align-items: center;
   min-height: 80px;
+  position: relative;
 
   .nav-title {
     transition: all $transition-duration $transition-easing;
@@ -73,16 +76,23 @@ $transition-easing: ease;
     background-color: $nav-toggle-bg !important;
     color: $nav-toggle-color !important;
     border: none !important;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all $transition-duration $transition-easing;
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
     &:hover {
       background-color: darken($nav-toggle-bg, 10%) !important;
-      transform: scale(1.05);
+      transform: translateY(-50%) scale(1.05);
     }
 
     &:focus {
@@ -100,11 +110,16 @@ $transition-easing: ease;
   .menu-items {
     display: flex;
     flex-direction: column;
-    gap: $spacing-xs;
+    gap: 0;
+
+    // Add spacing between top and bottom groups
+    .menu-item:nth-child(7) {
+      margin-bottom: $spacing-lg;
+    }
 
     .menu-item {
       color: $nav-text-color;
-      padding: $spacing-md;
+      padding: $spacing-md $spacing-lg;
       text-decoration: none;
       transition: all $transition-duration $transition-easing;
       display: flex;
@@ -112,19 +127,18 @@ $transition-easing: ease;
       gap: $spacing-md;
       border-radius: 0;
       position: relative;
-      margin: 0 $spacing-sm;
+      margin: 0;
+      font-size: 0.95rem;
 
       &:hover {
-        background-color: lighten($nav-active-bg, 5%);
+        background-color: #f5f5f5;
         color: $nav-text-hover;
-        transform: translateX(2px);
       }
 
       &.active {
         background-color: $nav-active-bg;
         color: $nav-active-color;
-        border-right: 3px solid $nav-active-border;
-        font-weight: 600;
+        font-weight: 500;
 
         &::before {
           content: '';
@@ -132,7 +146,7 @@ $transition-easing: ease;
           left: 0;
           top: 0;
           bottom: 0;
-          width: 3px;
+          width: 4px;
           background-color: $nav-active-border;
         }
       }
@@ -146,7 +160,7 @@ $transition-easing: ease;
 
       span {
         transition: all $transition-duration $transition-easing;
-        font-weight: 500;
+        font-weight: 400;
         opacity: 1;
         visibility: visible;
         white-space: nowrap;
@@ -169,7 +183,7 @@ $transition-easing: ease;
 
 // Footer Section
 .nav-footer {
-  padding: $spacing-md;
+  padding: $spacing-lg $spacing-md;
   border-top: 1px solid $nav-border-color;
   display: flex;
   justify-content: space-between;
@@ -185,8 +199,15 @@ $transition-easing: ease;
     flex: 1;
 
     i {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: $nav-text-color;
+      background-color: #f0f0f0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .user-info {
@@ -197,16 +218,18 @@ $transition-easing: ease;
       flex-direction: column;
 
       .user-name {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 0.9rem;
-        color: #2c3e50;
+        color: $nav-text-color;
         line-height: 1.2;
+        margin: 0;
       }
 
       .user-role {
         font-size: 0.8rem;
         color: $nav-text-color;
         line-height: 1.2;
+        margin: 0;
       }
     }
   }
@@ -214,6 +237,11 @@ $transition-easing: ease;
   .logout-btn {
     color: $nav-logout-color !important;
     transition: all $transition-duration $transition-easing;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       background-color: rgba($nav-logout-color, 0.1) !important;
