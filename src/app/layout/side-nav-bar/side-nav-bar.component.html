@@ -1,23 +1,7 @@
 <div class="side-nav-container" [class.collapsed]="isCollapsed">
-  <!-- Header with toggle button -->
-  <div class="nav-header">
-    <div class="nav-title" *ngIf="!isCollapsed">
-      <h2>Spikerz</h2>
-    </div>
-    <p-button 
-      [icon]="isCollapsed ? 'pi pi-chevron-right' : 'pi pi-chevron-left'"
-      [text]="true" 
-      [rounded]="true"
-      size="small"
-      (onClick)="onToggleCollapse()"
-      class="toggle-btn">
-    </p-button>
-  </div>
-
   <!-- Navigation Items -->
   <nav class="nav-menu">
     <div class="menu-items">
-      <!-- Top group of navigation items -->
       <a 
         *ngFor="let item of navItems" 
         [routerLink]="item.route"
@@ -28,8 +12,12 @@
         <span *ngIf="!isCollapsed">{{ item.label }}</span>
         <span *ngIf="item.badge && !isCollapsed" class="badge">{{ item.badge }}</span>
       </a>
-      
-      <!-- Bottom group of navigation items -->
+    </div>
+  </nav>
+
+  <!-- Bottom Navigation Items -->
+  <nav class="bottom-nav-menu">
+    <div class="menu-items">
       <a 
         *ngFor="let item of bottomNavItems" 
         [routerLink]="item.route"
@@ -60,6 +48,18 @@
       (onClick)="onLogout()"
       class="logout-btn"
       [title]="isCollapsed ? 'Logout' : ''">
+    </p-button>
+  </div>
+
+  <!-- Toggle Button -->
+  <div class="toggle-container">
+    <p-button 
+      [icon]="isCollapsed ? 'pi pi-chevron-right' : 'pi pi-chevron-left'"
+      [text]="true" 
+      [rounded]="true"
+      size="small"
+      (onClick)="onToggleCollapse()"
+      class="toggle-btn">
     </p-button>
   </div>
 </div>

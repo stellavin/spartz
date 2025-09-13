@@ -26,7 +26,7 @@ export class SideNavBarComponent {
   @Input() isCollapsed: boolean = false;
   @Output() toggleCollapse = new EventEmitter<void>();
 
-  // Navigation items based on the exact image
+  // Navigation items based on the exact image - 7 items only
   navItems: NavItem[] = [
     { label: 'Lorem', icon: 'pi pi-th-large', route: '/dashboard' },
     { label: 'Lorem', icon: 'pi pi-exclamation-triangle', route: '/alerts' },
