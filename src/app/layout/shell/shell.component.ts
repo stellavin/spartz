@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-import { MenuModule } from 'primeng/menu';
-import { MenuItem } from 'primeng/api';
+import { SideNavBarComponent } from '../side-nav-bar/side-nav-bar.component';
 
 @Component({
   selector: 'app-shell',
@@ -16,43 +15,19 @@ import { MenuItem } from 'primeng/api';
     MenubarModule,
     SidebarModule,
     ButtonModule,
-    MenuModule
+    SideNavBarComponent
   ],
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-  sidebarVisible = signal(false);
-  
-  menuItems: MenuItem[] = [
-    {
-      label: 'Dashboard',
-      icon: 'pi pi-th-large',
-      routerLink: ['/dashboard']
-    },
-    {
-      label: 'Analytics',
-      icon: 'pi pi-chart-bar',
-      routerLink: ['/analytics']
-    },
-    {
-      label: 'Reports',
-      icon: 'pi pi-file',
-      routerLink: ['/reports']
-    },
-    {
-      label: 'Settings',
-      icon: 'pi pi-cog',
-      routerLink: ['/settings']
-    },
-    {
-      label: 'Users',
-      icon: 'pi pi-users',
-      routerLink: ['/users']
-    }
-  ];
+  sidebarVisible = signal(true);
 
   toggleSidebar() {
     this.sidebarVisible.update(visible => !visible);
+  }
+
+  onSideNavToggle() {
+    this.toggleSidebar();
   }
 }

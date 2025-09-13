@@ -1,40 +1,9 @@
 <div class="shell-container">
-  <!-- Fixed Sidebar -->
-  <aside class="sidebar" [class.sidebar-collapsed]="!sidebarVisible()">
-    <div class="sidebar-header">
-      <h2 class="sidebar-title">Spikerz</h2>
-      <p-button 
-        icon="pi pi-chevron-left" 
-        [text]="true" 
-        [rounded]="true"
-        size="small"
-        (onClick)="toggleSidebar()"
-        class="sidebar-toggle">
-      </p-button>
-    </div>
-    
-    <nav class="sidebar-nav">
-      <p-menu 
-        [model]="menuItems" 
-        styleClass="sidebar-menu"
-        [style]="{'width': '100%', 'border': 'none'}">
-      </p-menu>
-    </nav>
-    
-    <div class="sidebar-footer">
-      <div class="user-profile">
-        <i class="pi pi-user"></i>
-        <span class="user-name">User Name</span>
-      </div>
-      <p-button 
-        icon="pi pi-sign-out" 
-        [text]="true" 
-        [rounded]="true"
-        size="small"
-        class="logout-btn">
-      </p-button>
-    </div>
-  </aside>
+  <!-- SideNavBar Component -->
+  <app-side-nav-bar 
+    [isCollapsed]="!sidebarVisible()"
+    (toggleCollapse)="onSideNavToggle()">
+  </app-side-nav-bar>
 
   <!-- Main Content Area -->
   <main class="main-content">

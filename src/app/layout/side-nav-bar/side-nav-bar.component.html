@@ -1,0 +1,52 @@
+<div class="side-nav-container" [class.collapsed]="isCollapsed">
+  <!-- Header with toggle button -->
+  <div class="nav-header">
+    <div class="nav-title" *ngIf="!isCollapsed">
+      <h2>Spikerz</h2>
+    </div>
+    <p-button 
+      [icon]="isCollapsed ? 'pi pi-chevron-right' : 'pi pi-chevron-left'"
+      [text]="true" 
+      [rounded]="true"
+      size="small"
+      (onClick)="onToggleCollapse()"
+      class="toggle-btn">
+    </p-button>
+  </div>
+
+  <!-- Navigation Items -->
+  <nav class="nav-menu">
+    <div class="menu-items">
+      <a 
+        *ngFor="let item of navItems" 
+        [routerLink]="item.route"
+        class="menu-item"
+        [class.active]="isActiveRoute(item.route)"
+        [title]="isCollapsed ? item.label : ''">
+        <i [class]="item.icon"></i>
+        <span *ngIf="!isCollapsed">{{ item.label }}</span>
+        <span *ngIf="item.badge && !isCollapsed" class="badge">{{ item.badge }}</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- User Profile Section -->
+  <div class="nav-footer">
+    <div class="user-profile">
+      <i [class]="userProfile.avatar"></i>
+      <div *ngIf="!isCollapsed" class="user-info">
+        <span class="user-name">{{ userProfile.name }}</span>
+        <span class="user-role">{{ userProfile.role }}</span>
+      </div>
+    </div>
+    <p-button 
+      icon="pi pi-sign-out" 
+      [text]="true" 
+      [rounded]="true"
+      size="small"
+      (onClick)="onLogout()"
+      class="logout-btn"
+      [title]="isCollapsed ? 'Logout' : ''">
+    </p-button>
+  </div>
+</div>
