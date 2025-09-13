@@ -62,6 +62,68 @@
     line-height: 1.7;
     margin-bottom: 0;
   }
+
+  // Key-Value List Section
+  .key-value-section {
+    border-top: 1px solid #e9ecef;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .key-value-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f8f9fa;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .key {
+      font-weight: 600;
+      color: #495057;
+      font-size: 0.9rem;
+    }
+
+    .value {
+      color: #6c757d;
+      font-size: 0.9rem;
+      text-align: right;
+
+      &.status-yes {
+        color: #28a745;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        i {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  // Server Cards Section
+  .server-cards-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+
+    .section-header {
+      margin: 0 0 1.5rem 0;
+      color: #2c3e50;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+  }
 }
 
 // Responsive design

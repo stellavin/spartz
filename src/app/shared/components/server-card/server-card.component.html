@@ -1,0 +1,23 @@
+<div class="server-card">
+  <h3 class="card-title">{{ cardData.title }}</h3>
+  
+  <div class="card-content">
+    <div class="card-info">
+      <div class="icon-container">
+        <i class="pi pi-server" [class]="cardData.iconClass"></i>
+      </div>
+      <div class="labels">
+        <div class="primary-label">{{ cardData.primaryLabel }}</div>
+        <div class="secondary-label">{{ cardData.secondaryLabel }}</div>
+      </div>
+    </div>
+    
+    <div class="card-divider"></div>
+    
+    <div class="card-description">
+      <div *ngFor="let line of cardData.description" class="description-line">
+        {{ line }}
+      </div>
+    </div>
+  </div>
+</div>

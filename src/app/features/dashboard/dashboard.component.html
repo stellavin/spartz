@@ -13,6 +13,52 @@
           <h3 class="green-heading">Extra</h3>
           <p>Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus. Lorem ipsum dolor sit amet consectetur adipiscing elit. Tempus a id adipiscing fames egestas tellus dis pretium tempus adipiscing fames.</p>
         </div>
+        
+        <!-- Key-Value List Section -->
+        <div class="content-block key-value-section">
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">10/19/2017</span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">Ut</span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">Eros</span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value status-yes">
+              <i class="pi pi-check"></i>
+              Yes
+            </span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">Sit</span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">Lorem Ipsum Dolor</span>
+          </div>
+          <div class="key-value-item">
+            <span class="key">Lorem Ipsum Dolor</span>
+            <span class="value">Lorem Ipsum Dolor</span>
+          </div>
+        </div>
+        
+        <!-- Server Cards Section -->
+        <div class="server-cards-section">
+          <h2 class="section-header">Lorem Ipsum Dolor Sit</h2>
+          <div class="cards-container">
+            <app-server-card 
+              *ngFor="let card of serverCardsData; trackBy: trackByCardId" 
+              [cardData]="card">
+            </app-server-card>
+          </div>
+        </div>
       </div>
     </section>
 
