@@ -24,6 +24,11 @@ export class ContextualRiskSummaryComponent {
 
   constructor() {}
 
+  getCriticalCount(): number {
+    const criticalRisk = this.riskSummary.find(risk => risk.level === 'Critical');
+    return criticalRisk ? criticalRisk.count : 0;
+  }
+
   getTotalCount(): number {
     return this.riskSummary.reduce((sum, risk) => sum + risk.count, 0);
   }
