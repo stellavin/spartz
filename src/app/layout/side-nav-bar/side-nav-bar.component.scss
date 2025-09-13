@@ -1,6 +1,6 @@
 // SCSS Variables - Matching the image design
-$nav-width: 280px;
-$nav-width-collapsed: 80px;
+$nav-width: 240px;
+$nav-width-collapsed: 60px;
 $nav-bg-color: #ffffff;
 $nav-border-color: #e5e5e5;
 $nav-text-color: #666666;
@@ -29,13 +29,12 @@ $transition-easing: ease;
   width: $nav-width;
   height: 100vh;
   background-color: $nav-bg-color;
-  border-right: 1px solid $nav-border-color;
   display: flex;
   flex-direction: column;
   transition: width $transition-duration $transition-easing;
   position: relative;
   z-index: 1000;
-  box-shadow: $nav-shadow;
+  box-shadow: 0 0 0 1px #e5e5e5, 0 0 18px rgba(0, 0, 0, 0.06);
 
   &.collapsed {
     width: $nav-width-collapsed;
@@ -93,7 +92,7 @@ $transition-easing: ease;
 
     .menu-item {
       color: $nav-text-color;
-      padding: $spacing-md $spacing-lg;
+      padding: $spacing-sm $spacing-lg;
       text-decoration: none;
       transition: all $transition-duration $transition-easing;
       display: flex;
@@ -168,7 +167,7 @@ $transition-easing: ease;
 
     .menu-item {
       color: $nav-text-color;
-      padding: $spacing-md $spacing-lg;
+      padding: $spacing-sm $spacing-lg;
       text-decoration: none;
       transition: all $transition-duration $transition-easing;
       display: flex;
