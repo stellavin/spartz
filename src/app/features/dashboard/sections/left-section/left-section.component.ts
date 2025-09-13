@@ -1,0 +1,61 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ServerCardData } from '../../../../shared/components/server-card/server-card.component';
+import { ContentBlockComponent } from '../../../../shared/components/content-block/content-block.component';
+import { KeyValueListComponent, KeyValueItem } from '../../../../shared/components/key-value-list/key-value-list.component';
+import { ServerCardsSectionComponent } from '../../../../shared/components/server-cards-section/server-cards-section.component';
+
+@Component({
+  selector: 'app-left-section',
+  standalone: true,
+  imports: [CommonModule, ContentBlockComponent, KeyValueListComponent, ServerCardsSectionComponent],
+  templateUrl: './left-section.component.html',
+  styleUrls: ['./left-section.component.scss']
+})
+export class LeftSectionComponent {
+  readonly descriptionData = {
+    title: 'Description',
+    content: 'Lorem Ipsum Dolor Sit Amet Consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus. Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus.'
+  };
+
+  readonly extraData = {
+    title: 'Extra',
+    content: 'Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus. Lorem ipsum dolor sit amet consectetur adipiscing elit. Tempus a id adipiscing fames egestas tellus dis pretium tempus adipiscing fames.'
+  };
+
+  readonly keyValueItems: KeyValueItem[] = [
+    { key: 'Lorem Ipsum Dolor', value: '10/19/2017' },
+    { key: 'Lorem Ipsum Dolor', value: 'Ut' },
+    { key: 'Lorem Ipsum Dolor', value: 'Eros' },
+    { key: 'Lorem Ipsum Dolor', value: 'Yes', hasIcon: true, iconClass: 'pi pi-check' },
+    { key: 'Lorem Ipsum Dolor', value: 'Sit' },
+    { key: 'Lorem Ipsum Dolor', value: 'Lorem Ipsum Dolor' },
+    { key: 'Lorem Ipsum Dolor', value: 'Lorem Ipsum Dolor' }
+  ];
+
+  readonly serverCardsData: ServerCardData[] = [
+    {
+      id: '1',
+      title: 'Lorem P',
+      primaryLabel: 'Server',
+      secondaryLabel: 'Server',
+      description: ['Lorem Ipsum', 'Dolor Sit Amet', 'Consectetur.']
+    },
+    {
+      id: '2',
+      title: 'Lorem S',
+      primaryLabel: 'Server',
+      secondaryLabel: 'Server',
+      description: ['Lorem Ipsum', 'Dolor Sit Amet', 'Consectetur.']
+    },
+    {
+      id: '3',
+      title: 'Lorem T',
+      primaryLabel: 'Server',
+      secondaryLabel: 'Server',
+      description: ['Lorem Ipsum', 'Dolor Sit Amet', 'Consectetur.']
+    }
+  ];
+
+  readonly serverCardsSectionTitle = 'Lorem Ipsum Dolor Sit';
+}

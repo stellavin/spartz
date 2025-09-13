@@ -1,0 +1,13 @@
+<div class="content-block key-value-section">
+  <div 
+    *ngFor="let item of items; trackBy: trackByKey" 
+    class="key-value-item">
+    <span class="key">{{ item.key }}</span>
+    <span 
+      class="value" 
+      [class.status-yes]="item.hasIcon">
+      <i *ngIf="item.hasIcon" [class]="item.iconClass || 'pi pi-check'"></i>
+      {{ item.value }}
+    </span>
+  </div>
+</div>

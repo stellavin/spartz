@@ -1,0 +1,9 @@
+<div class="server-cards-section">
+  <h2 class="section-header">{{ title }}</h2>
+  <div class="cards-container">
+    <app-server-card 
+      *ngFor="let card of cards; trackBy: trackByCardId" 
+      [cardData]="card">
+    </app-server-card>
+  </div>
+</div>

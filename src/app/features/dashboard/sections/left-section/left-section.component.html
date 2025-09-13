@@ -1,0 +1,24 @@
+<section class="left-section">
+  <div class="section-content">
+    <!-- Description Content Block -->
+    <app-content-block 
+      [title]="descriptionData.title" 
+      [content]="descriptionData.content">
+    </app-content-block>
+    
+    <!-- Extra Content Block -->
+    <app-content-block 
+      [title]="extraData.title" 
+      [content]="extraData.content">
+    </app-content-block>
+    
+    <!-- Key-Value List -->
+    <app-key-value-list [items]="keyValueItems"></app-key-value-list>
+    
+    <!-- Server Cards Section -->
+    <app-server-cards-section 
+      [title]="serverCardsSectionTitle" 
+      [cards]="serverCardsData">
+    </app-server-cards-section>
+  </div>
+</section>

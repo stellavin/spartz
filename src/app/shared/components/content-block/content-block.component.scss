@@ -1,0 +1,21 @@
+.content-block {
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .green-heading {
+    color: #28a745 !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.2rem !important;
+  }
+
+  p {
+    color: #495057;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+}
