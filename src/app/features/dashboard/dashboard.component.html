@@ -1,19 +1,27 @@
 <div class="dashboard-container">
- 
   <!-- Dashboard Content -->
   <div class="dashboard-content">
-    <!-- Left Section -->
+    <!-- Left Section (30%) -->
     <section class="left-section">
-      <app-left-section [isLoading]="isLoading()"></app-left-section>
+      <div class="section-content">
+        <div class="content-block">
+          <h3 class="green-heading">Description</h3>
+          <p>Lorem Ipsum Dolor Sit Amet Consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus. Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus.</p>
+        </div>
+        
+        <div class="content-block">
+          <h3 class="green-heading">Extra</h3>
+          <p>Lorem ipsum dolor sit amet consectetur. Tempus a id adipiscing fames egestas tellus dis pretium tempus. Lorem ipsum dolor sit amet consectetur adipiscing elit. Tempus a id adipiscing fames egestas tellus dis pretium tempus adipiscing fames.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Right Section -->
+    <!-- Right Section (70%) -->
     <section class="right-section">
-      <app-right-section [isLoading]="isLoading()"></app-right-section>
+      <div class="section-content">
+        <h3>Right Section</h3>
+        <p>This section occupies 70% of the width.</p>
+      </div>
     </section>
   </div>
 </div>
-
-
-
-

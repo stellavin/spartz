@@ -2,7 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, Routes } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { HomeComponent } from './features/home/home.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 const routes: Routes = [
   { 
@@ -10,15 +10,15 @@ const routes: Routes = [
     loadComponent: () => import('./layout/shell/shell.component').then(m => m.ShellComponent),
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: HomeComponent },
-      { path: 'alerts', component: HomeComponent },
-      { path: 'assets', component: HomeComponent },
-      { path: 'expand', component: HomeComponent },
-      { path: 'connections', component: HomeComponent },
-      { path: 'reports', component: HomeComponent },
-      { path: 'filters', component: HomeComponent },
-      { path: 'settings', component: HomeComponent },
-      { path: 'messages', component: HomeComponent }
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'alerts', component: DashboardComponent },
+      { path: 'assets', component: DashboardComponent },
+      { path: 'expand', component: DashboardComponent },
+      { path: 'connections', component: DashboardComponent },
+      { path: 'reports', component: DashboardComponent },
+      { path: 'filters', component: DashboardComponent },
+      { path: 'settings', component: DashboardComponent },
+      { path: 'messages', component: DashboardComponent }
     ]
   },
   { path: '**', redirectTo: '' }
