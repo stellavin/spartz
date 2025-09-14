@@ -1,4 +1,4 @@
-<div class="shell-container">
+<div class="shell-container" [class.sidebar-collapsed]="!sidebarVisible()">
   <!-- SideNavBar Component -->
   <app-side-nav-bar 
     [isCollapsed]="!sidebarVisible()"

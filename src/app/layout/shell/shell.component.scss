@@ -7,40 +7,11 @@
   width: 100vw;
   overflow: hidden;
   background-color: #525D73;
+  position: relative; // Ensure proper positioning context
 }
 
-// Fixed Sidebar
-.sidebar {
-  width: $sidebar-width;
-  background: linear-gradient(180deg, #525D73 0%, #525D73 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem rgba(0, 0, 0, 0.06);
-  z-index: 1000;
-  
-  &.sidebar-collapsed {
-    width: $sidebar-width-collapsed;
-    
-    .sidebar-title,
-    .user-name {
-      opacity: 0;
-      visibility: hidden;
-    }
-    
-    .sidebar-nav {
-      .menu-items {
-        .menu-item {
-          span {
-            opacity: 0;
-            visibility: hidden;
-          }
-        }
-      }
-    }
-  }
-}
+// Sidebar styling is handled by side-nav-bar component
+// This ensures proper layout and prevents overlap
 
 .sidebar-header {
   padding: 1.5rem 1rem;
@@ -159,6 +130,25 @@
   overflow: hidden;
   background-color: #ffffff;
   margin-left: 0;
+  min-width: 0; // Prevents flex item from overflowing
+  transition: all 0.3s ease; // Smooth transition when sidebar collapses
+  width: calc(100% - #{$sidebar-width}); // Default width accounting for sidebar
+}
+
+// When sidebar is collapsed, main content should take more space
+.shell-container.sidebar-collapsed .main-content {
+  width: calc(100% - #{$sidebar-width-collapsed});
+}
+
+// Ensure proper layout on all screen sizes
+.shell-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  
+  app-side-nav-bar {
+    flex-shrink: 0;
+  }
 }
 
 .main-header {
@@ -236,27 +226,39 @@
 
 
 // Responsive Design
+
+// Large screens - ensure proper spacing
+@media (min-width: 1200px) {
+  .main-content {
+    width: calc(100% - #{$sidebar-width});
+  }
+  
+  .shell-container.sidebar-collapsed .main-content {
+    width: calc(100% - #{$sidebar-width-collapsed});
+  }
+}
+
+// Medium screens - prevent overlap
+@media (max-width: 1199px) and (min-width: 769px) {
+  .main-content {
+    width: calc(100% - #{$sidebar-width});
+    min-width: 300px; // Ensure minimum content width
+  }
+  
+  .shell-container.sidebar-collapsed .main-content {
+    width: calc(100% - #{$sidebar-width-collapsed});
+  }
+}
+
+// Small screens - mobile layout
 @media (max-width: 768px) {
-  .shell-container {
-    .sidebar {
-      position: fixed;
-      left: -$sidebar-width;
-      height: 100vh;
-      z-index: 1001;
-      transition: left 0.3s ease;
-      
-      &:not(.sidebar-collapsed) {
-        left: 0;
-      }
-    }
-    
-    .main-content {
-      .main-header {
-        .mobile-menu-toggle {
-          display: block;
-        }
-      }
-    }
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .shell-container:not(.sidebar-collapsed) .main-content {
+    width: 100%;
   }
 }
 

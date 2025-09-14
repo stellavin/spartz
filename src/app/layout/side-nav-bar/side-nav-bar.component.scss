@@ -27,6 +27,7 @@ $nav-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem $color-shadow;
   position: relative;
   z-index: 1000;
   box-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem rgba(0, 0, 0, 0.06);
+  flex-shrink: 0; // Prevent sidebar from shrinking
 
   &.collapsed {
     width: $nav-width-collapsed;
@@ -35,6 +36,21 @@ $nav-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem $color-shadow;
     .menu-item span {
       opacity: 0;
       visibility: hidden;
+    }
+  }
+}
+
+// Responsive behavior
+@media (max-width: 768px) {
+  .side-nav-container {
+    position: fixed;
+    left: -$nav-width;
+    top: 0;
+    z-index: 1001;
+    transition: left $transition-duration $transition-easing;
+    
+    &:not(.collapsed) {
+      left: 0;
     }
   }
 }

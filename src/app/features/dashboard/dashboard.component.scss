@@ -43,8 +43,34 @@
 }
 
 // Responsive design
+@media (max-width: 1024px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .right-section {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-content {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .right-section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    gap: 0.5rem;
+  }
+  
+  .right-section {
+    padding: 0.75rem;
   }
 }
