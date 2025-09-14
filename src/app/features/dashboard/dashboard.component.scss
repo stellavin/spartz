@@ -16,6 +16,9 @@
 }
 
 .right-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
   background: white;
   border-radius: 0.5rem;
   padding: 2rem;

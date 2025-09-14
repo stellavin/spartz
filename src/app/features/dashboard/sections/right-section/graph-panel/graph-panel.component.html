@@ -1,0 +1,142 @@
+<!-- Title -->
+<h2 class="graph-title">Lorem Lorem Lorem</h2>
+
+<!-- Main Content Card -->
+<div>
+  <!-- Graph Container -->
+  <div class="graph-container">
+    <svg class="network-diagram" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Edges -->
+      <path d="M 150 150 Q 200 150 250 150" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 350 150 Q 400 150 450 150" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 550 150 Q 600 120 650 80" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 550 150 Q 600 180 650 220" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      
+      <!-- Arrow marker definition -->
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#9E9E9E" />
+        </marker>
+      </defs>
+      
+      <!-- Node 1: User node with purple overlay -->
+      <g class="node" (click)="onNodeClick('1')">
+        <circle cx="100" cy="150" r="40" fill="#FEECEB" stroke="#E0E0E0" stroke-width="2" />
+        <text x="100" y="155" text-anchor="middle" font-size="20">🎭</text>
+        <!-- Purple overlay -->
+        <circle cx="125" cy="125" r="12" fill="#7E57C2" />
+        <text x="125" y="130" text-anchor="middle" font-size="10" fill="white">👥</text>
+        <!-- Label -->
+        <text x="100" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
+        <text x="100" y="225" text-anchor="middle" font-size="12" fill="#999">FW</text>
+      </g>
+      
+      <!-- Node 2: Server node -->
+      <g class="node" (click)="onNodeClick('2')">
+        <circle cx="300" cy="150" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="300" y="155" text-anchor="middle" font-size="20">🖥️</text>
+        <!-- Label -->
+        <text x="300" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
+      </g>
+      
+      <!-- Node 3: Server node -->
+      <g class="node" (click)="onNodeClick('3')">
+        <circle cx="500" cy="150" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="500" y="155" text-anchor="middle" font-size="20">🖥️</text>
+        <!-- Label -->
+        <text x="500" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
+      </g>
+      
+      <!-- Node 4: Server node with risk badge (top) -->
+      <g class="node" (click)="onNodeClick('4')">
+        <circle cx="700" cy="80" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="700" y="85" text-anchor="middle" font-size="20">🖥️</text>
+        <!-- Risk badge -->
+        <circle cx="730" cy="60" r="12" fill="#EF5350" />
+        <text x="730" y="65" text-anchor="middle" font-size="10" fill="white">⚠️</text>
+        <!-- Label -->
+        <text x="700" y="140" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
+        <text x="700" y="155" text-anchor="middle" font-size="12" fill="#999">192.168.1.1</text>
+      </g>
+      
+      <!-- Node 5: Server node with risk badge (bottom) -->
+      <g class="node" (click)="onNodeClick('5')">
+        <circle cx="700" cy="220" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="700" y="225" text-anchor="middle" font-size="20">🖥️</text>
+        <!-- Risk badge -->
+        <circle cx="730" cy="200" r="12" fill="#EF5350" />
+        <text x="730" y="205" text-anchor="middle" font-size="10" fill="white">⚠️</text>
+        <!-- Label -->
+        <text x="700" y="280" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
+        <text x="700" y="295" text-anchor="middle" font-size="12" fill="#999">192.168.1.2</text>
+      </g>
+    </svg>
+  </div>
+  
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-chip critical">
+      <span class="legend-icon">🛡️</span>
+      <span class="legend-text">Lorem</span>
+    </div>
+    <div class="legend-chip warning">
+      <span class="legend-icon">🛡️</span>
+      <span class="legend-text">Lorem</span>
+    </div>
+    <div class="legend-chip secure">
+      <span class="legend-icon">🛡️</span>
+      <span class="legend-text">Lorem</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Node Popover -->
+  <div 
+    *ngIf="popover.visible && selectedNode" 
+    class="node-popover"
+    [style.left.px]="popover.x"
+    [style.top.px]="popover.y"
+    (click)="closePopover()"
+  >
+    <div class="popover-content">
+      <div class="popover-header">
+        <h4 class="popover-title">{{ selectedNode.label }}</h4>
+        <button class="popover-close" type="button" (click)="closePopover()">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+      
+      <div class="popover-body">
+        <div class="popover-item">
+          <span class="popover-label">Type:</span>
+          <span class="popover-value">{{ selectedNode.type | titlecase }}</span>
+        </div>
+        
+        <div class="popover-item" *ngIf="selectedNode.ipAddress">
+          <span class="popover-label">IP Address:</span>
+          <span class="popover-value">{{ selectedNode.ipAddress }}</span>
+        </div>
+        
+        <div class="popover-item">
+          <span class="popover-label">Status:</span>
+          <span 
+            class="popover-value risk-indicator"
+            [style.color]="getRiskLevelColor(selectedNode.riskLevel)"
+          >
+            {{ getRiskLevelText(selectedNode.riskLevel) }}
+          </span>
+        </div>
+      </div>
+      
+      <div class="popover-actions">
+        <button class="popover-button primary" type="button">
+          <i class="pi pi-eye"></i>
+          View Details
+        </button>
+        <button class="popover-button secondary" type="button">
+          <i class="pi pi-cog"></i>
+          Configure
+        </button>
+      </div>
+    </div>
+  </div>

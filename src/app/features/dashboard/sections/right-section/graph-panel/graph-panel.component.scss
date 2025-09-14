@@ -1,0 +1,283 @@
+@import '../../../../../core/styles/variables';
+
+// Title styling - green and bold
+.graph-title {
+  margin: 0 0 $spacing-lg 0;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: #4CAF50; // Green color from image
+  text-align: left;
+}
+
+// Main card container - white with rounded corners
+.main-card {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: $spacing-xl;
+  position: relative;
+}
+
+.graph-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background: #fafafa;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+}
+
+.network-diagram {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.node {
+  cursor: pointer;
+  transition: all $transition-duration $transition-easing;
+
+  &:hover {
+    transform: scale(1.05);
+    transform-origin: center;
+  }
+
+  circle {
+    transition: all $transition-duration $transition-easing;
+  }
+
+  &:hover circle {
+    stroke-width: 3;
+    stroke: #00732E;
+  }
+}
+
+
+// Legend - positioned at bottom left as in image
+.legend {
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: $spacing-lg;
+}
+
+.legend-chip {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: #424242; // Dark gray from image
+
+  &.critical {
+    .legend-icon {
+      color: #EF5350; // Red shield
+    }
+  }
+
+  &.warning {
+    .legend-icon {
+      color: #FFA726; // Orange shield
+    }
+  }
+
+  &.secure {
+    .legend-icon {
+      color: #66BB6A; // Green shield
+    }
+  }
+}
+
+.legend-icon {
+  font-size: $font-size-sm;
+  margin-right: $spacing-xs;
+}
+
+.legend-text {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: #424242; // Dark gray from image
+}
+
+// Node Popover Styles
+.node-popover {
+  position: absolute;
+  z-index: $z-index-popover;
+  pointer-events: auto;
+  max-width: 300px;
+  min-width: 250px;
+}
+
+.popover-content {
+  background: white;
+  border: $border-width-xs solid $color-border;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+  animation: popoverFadeIn 0.2s ease-out;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  background: $color-background-hover;
+  border-bottom: $border-width-xs solid $color-border;
+}
+
+.popover-title {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text;
+}
+
+.popover-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: $border-radius-sm;
+  background: transparent;
+  color: $color-text-light;
+  cursor: pointer;
+  transition: all $transition-duration $transition-easing;
+
+  &:hover {
+    background: $color-border-light;
+    color: $color-text;
+  }
+
+  i {
+    font-size: $icon-size-xs;
+  }
+}
+
+.popover-body {
+  padding: $spacing-lg;
+}
+
+.popover-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.popover-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-light;
+}
+
+.popover-value {
+  font-size: $font-size-sm;
+  color: $color-text;
+  font-weight: $font-weight-normal;
+}
+
+.risk-indicator {
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  font-size: $font-size-xs;
+  letter-spacing: 0.5px;
+}
+
+.popover-actions {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: $color-background-hover;
+  border-top: $border-width-xs solid $color-border;
+}
+
+.popover-button {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  border: $border-width-xs solid transparent;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-duration $transition-easing;
+  flex: 1;
+
+  &.primary {
+    background: $color-primary;
+    color: white;
+
+    &:hover {
+      background: $color-primary-dark;
+      transform: translateY(-1px);
+    }
+  }
+
+  &.secondary {
+    background: white;
+    color: $color-text;
+    border-color: $color-border;
+
+    &:hover {
+      background: $color-background-hover;
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  i {
+    font-size: $icon-size-xs;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .graph-panel-header {
+    padding: $spacing-md;
+  }
+
+  .graph-panel-title {
+    font-size: $font-size-lg;
+  }
+
+  .graph-panel-content {
+    padding: $spacing-md;
+  }
+
+  .react-flow-container {
+    height: 300px;
+  }
+
+  .node-popover {
+    max-width: 280px;
+    min-width: 220px;
+  }
+
+  .popover-actions {
+    flex-direction: column;
+  }
+
+  .popover-button {
+    flex: none;
+  }
+}
