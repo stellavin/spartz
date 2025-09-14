@@ -14,7 +14,7 @@ $nav-toggle-bg: $color-primary;
 $nav-toggle-color: $color-background;
 $nav-user-bg: $color-background;
 $nav-logout-color: $color-text;
-$nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
+$nav-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem $color-shadow;
 
 // Main Container
 .side-nav-container {
@@ -26,7 +26,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
   transition: width $transition-duration $transition-easing;
   position: relative;
   z-index: 1000;
-  box-shadow: 0 0 0 1px #e5e5e5, 0 0 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 $border-width-xs $color-border, 0 0 1.125rem rgba(0, 0, 0, 0.06);
 
   &.collapsed {
     width: $nav-width-collapsed;
@@ -42,15 +42,15 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 // Toggle Button Container
 .toggle-container {
   position: absolute;
-  right: -18px;
-  top: 20px;
+  right: -1.125rem;
+  top: 1.25rem;
   z-index: 1001;
 
   .toggle-btn {
     background-color: $nav-toggle-bg !important;
     color: $nav-toggle-color !important;
-    width: 24px !important;
-    height: 24px !important;
+    width: $icon-size-lg !important;
+    height: $icon-size-lg !important;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba($nav-toggle-bg, 0.3) !important;
+      box-shadow: 0 0 0 $border-width-sm rgba($nav-toggle-bg, 0.3) !important;
     }
 
     // Center the icon properly
@@ -88,8 +88,8 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
   .menu-items {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 0 8px;
+    gap: $spacing-xs;
+    padding: 0 $spacing-sm;
 
     .menu-item {
       color: $nav-text-color;
@@ -99,7 +99,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
       display: flex;
       align-items: center;
       gap: $spacing-md;
-      border-radius: 8px;
+      border-radius: $border-radius-md;
       position: relative;
       margin: 0;
       font-size: 0.95rem;
@@ -118,7 +118,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
       i {
         font-size: 1.1rem;
-        min-width: 20px;
+        min-width: $icon-size-md;
         text-align: center;
         transition: all $transition-duration $transition-easing;
       }
@@ -128,8 +128,8 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
         font-family: inherit;
         font-weight: 400;
         font-style: normal;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: $font-size-md;
+        line-height: $line-height-base;
         letter-spacing: 0.01em;
         vertical-align: middle;
         text-transform: capitalize;
@@ -144,9 +144,9 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
         color: white;
         font-size: 0.75rem;
         padding: $spacing-xs $spacing-sm;
-        border-radius: 10px;
+        border-radius: 0.625rem;
         margin-left: auto;
-        min-width: 20px;
+        min-width: $icon-size-md;
         text-align: center;
       }
     }
@@ -161,8 +161,8 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
   .menu-items {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 0 8px;
+    gap: $spacing-xs;
+    padding: 0 $spacing-sm;
 
     .menu-item {
       color: $nav-text-color;
@@ -172,7 +172,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
       display: flex;
       align-items: center;
       gap: $spacing-md;
-      border-radius: 8px;
+      border-radius: $border-radius-md;
       position: relative;
       margin: 0;
       font-size: 0.95rem;
@@ -191,7 +191,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
       i {
         font-size: 1.1rem;
-        min-width: 20px;
+        min-width: $icon-size-md;
         text-align: center;
         transition: all $transition-duration $transition-easing;
       }
@@ -201,8 +201,8 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
         font-family: inherit;
         font-weight: 400;
         font-style: normal;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: $font-size-md;
+        line-height: $line-height-base;
         letter-spacing: 0.01em;
         vertical-align: middle;
         text-transform: capitalize;
@@ -217,9 +217,9 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
         color: white;
         font-size: 0.75rem;
         padding: $spacing-xs $spacing-sm;
-        border-radius: 10px;
+        border-radius: 0.625rem;
         margin-left: auto;
-        min-width: 20px;
+        min-width: $icon-size-md;
         text-align: center;
       }
     }
@@ -229,12 +229,12 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 // Footer Section
 .nav-footer {
   padding: $spacing-lg $spacing-md;
-  border-top: 1px solid #f0f0f0;
-  margin: 0 8px;
+  border-top: $border-width-xs solid $color-border-light;
+  margin: 0 $spacing-sm;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 80px;
+  min-height: 5rem;
   background-color: white;
 
   .user-profile {
@@ -245,8 +245,8 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
     flex: 1;
 
     .user-avatar {
-      width: 40px;
-      height: 40px;
+      width: $avatar-size-sm;
+      height: $avatar-size-sm;
       border-radius: 50%;
       background-color: #e0e0e0;
       display: flex;
@@ -266,7 +266,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
       visibility: visible;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: $spacing-2xs;
 
       .user-name {
         font-weight: 400;
@@ -290,13 +290,13 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
     border: none;
     color: #666666;
     transition: all $transition-duration $transition-easing;
-    width: 32px;
-    height: 32px;
+    width: $icon-size-xl;
+    height: $icon-size-xl;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: $border-radius-xs;
 
     i {
       font-size: 1rem;
@@ -309,7 +309,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 0 $border-width-sm rgba(0, 0, 0, 0.1);
     }
   }
 }
@@ -320,7 +320,7 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
     position: fixed;
     left: -$nav-width;
     z-index: 1001;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: $shadow-lg;
 
     &:not(.collapsed) {
       left: 0;
@@ -333,9 +333,9 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 }
 
 // Custom Scrollbar - simplified
-.nav-menu::-webkit-scrollbar { width: 4px; }
+.nav-menu::-webkit-scrollbar { width: $spacing-xs; }
 .nav-menu::-webkit-scrollbar-track { background: transparent; }
-.nav-menu::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 2px; }
+.nav-menu::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: $spacing-2xs; }
 .nav-menu::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
 // PrimeNG Overrides - simplified

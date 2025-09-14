@@ -1,6 +1,8 @@
+@import '../../core/styles/variables';
+
 .dashboard-container {
-  padding: 1rem 2rem 2rem 0;
-  max-width: 1200px;
+  padding: $spacing-md $spacing-xl $spacing-xl 0;
+  max-width: $container-max-width;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -17,9 +19,9 @@
   background: white;
   border-radius: 0.5rem;
   padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow-md;
   margin-top: 0;
-  border: 1px solid #e9ecef;
+  border: $border-width-xs solid $color-border-light;
 
   .section-content {
     h3 {

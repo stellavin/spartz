@@ -1,5 +1,7 @@
+@import '../../../core/styles/variables';
+
 .content-block {
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-xl;
 
   &:last-child {
     margin-bottom: 0;
@@ -8,16 +10,16 @@
   .green-heading {
     color: #28a745 !important;
     font-weight: 700 !important;
-    margin-bottom: 1rem !important;
-    font-size: 20px !important;
+    margin-bottom: $spacing-md !important;
+    font-size: $font-size-xl !important;
   }
 
   p {
     font-family: inherit;
     font-weight: 400;
     font-style: normal;
-    font-size: 12px;
-    line-height: 21px;
+    font-size: $font-size-xs;
+    line-height: $line-height-sm;
     letter-spacing: 1%;
     text-transform: capitalize;
     color: #525D73;

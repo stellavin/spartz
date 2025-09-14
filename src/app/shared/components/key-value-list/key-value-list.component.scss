@@ -1,7 +1,9 @@
+@import '../../../core/styles/variables';
+
 .content-block.key-value-section {
-  border-top: 1px solid #e9ecef;
-  padding-top: 1.5rem;
-  margin-top: 1.5rem;
+  border-top: $border-width-xs solid $color-border-light;
+  padding-top: $spacing-lg;
+  margin-top: $spacing-lg;
 }
 
 .key-value-item {
@@ -9,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid #f8f9fa;
+  border-bottom: $border-width-xs solid #f8f9fa;
 
   &:last-child {
     border-bottom: none;
@@ -18,12 +20,12 @@
   .key {
     font-weight: 600;
     color: #334155;
-    font-size: 12px;
+    font-size: $font-size-xs;
   }
 
   .value {
     color: #334155;
-    font-size: 12px;
+    font-size: $font-size-xs;
     text-align: right;
 
     &.status-yes {

@@ -2,10 +2,10 @@
 
 .assets-table-card {
   background: white;
-  border-radius: 8px;
-  padding: 16px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.051);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  border: $border-width-xs solid #e0e0e0;
+  box-shadow: $shadow-xs;
   height: 100%;
   width: 100%;
   display: flex;
@@ -16,9 +16,9 @@
 
 .table-header {
   display: flex;
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 8px;
+  padding: $spacing-sm 0;
+  border-bottom: $border-width-xs solid #e0e0e0;
+  margin-bottom: $spacing-sm;
 }
 
 .header-cell {
@@ -26,7 +26,7 @@
   font-size: 0.65rem;
   color: #666666;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
 }
 
 .asset-header {
@@ -35,7 +35,7 @@
 }
 
 .risk-header {
-  flex: 0 0 140px;
+  flex: 0 0 8.75rem;
   text-align: right;
 }
 
@@ -49,8 +49,8 @@
 
 .table-row {
   display: flex;
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 0;
+  border-bottom: $border-width-xs solid #e0e0e0;
   background: white;
   margin: 0;
 
@@ -66,12 +66,12 @@
 
 .asset-cell {
   flex: 1;
-  max-width: calc(100% - 140px);
+  max-width: calc(100% - 8.75rem);
   min-width: 0;
 }
 
 .risk-cell {
-  flex: 0 0 140px;
+  flex: 0 0 8.75rem;
   justify-content: flex-end;
 }
 
@@ -84,8 +84,8 @@
 }
 
 .asset-icon {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   background: #e3f2fd;
   border-radius: 50%;
   display: flex;
@@ -130,12 +130,12 @@
 
 // Risk level variants
 .risk-tag {
-  padding: 4px 8px;
-  border-radius: 12px;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 0.75rem;
   font-size: 0.65rem;
   font-weight: 600;
   text-align: center;
-  min-width: 60px;
+  min-width: 3.75rem;
   
   &--critical {
     background: #ffebee;
@@ -160,8 +160,8 @@
 
 .pagination-footer {
   margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid #e0e0e0;
+  padding-top: 0.75rem;
+  border-top: $border-width-xs solid #e0e0e0;
 }
 
 .pagination-controls {
@@ -177,7 +177,7 @@
   cursor: pointer;
   border: none;
   background: none;
-  padding: 4px;
+  padding: $spacing-xs;
   
   &:hover {
     color: #525D73;
@@ -206,10 +206,10 @@
   font-size: 0.65rem; // Reduced from small size
   
   .loading-spinner {
-    width: 20px;
-    height: 20px;
-    border: 2px solid $color-border-light;
-    border-top: 2px solid $color-primary;
+    width: $icon-size-md;
+    height: $icon-size-md;
+    border: $border-width-sm solid $color-border-light;
+    border-top: $border-width-sm solid $color-primary;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-bottom: $spacing-sm;

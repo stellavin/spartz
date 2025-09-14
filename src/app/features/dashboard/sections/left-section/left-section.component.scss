@@ -1,9 +1,11 @@
+@import '../../../../core/styles/variables';
+
 .left-section {
   background: white;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e9ecef;
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+  border: $border-width-xs solid $color-border-light;
   margin-top: 0;
   margin-left: 0;
 

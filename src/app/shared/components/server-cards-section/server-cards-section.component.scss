@@ -1,12 +1,14 @@
+@import '../../../core/styles/variables';
+
 .server-cards-section {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e9ecef;
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: $border-width-xs solid $color-border-light;
 
   .section-header {
-    margin: 0 0 1rem 0;
+    margin: 0 0 $spacing-md 0;
     color: #334155;
-    font-size: 20px;
+    font-size: $font-size-xl;
     font-weight: 700;
   }
 
