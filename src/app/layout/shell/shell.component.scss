@@ -4,13 +4,13 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #000000;
+  background-color: #525D73;
 }
 
 // Fixed Sidebar
 .sidebar {
   width: 240px;
-  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(180deg, #525D73 0%, #525D73 100%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -188,7 +188,7 @@
     font-size: 1.75rem;
     font-weight: 600;
     margin: 0;
-    color: #2c3e50;
+    color: #525D73;
   }
   
   .header-right {
