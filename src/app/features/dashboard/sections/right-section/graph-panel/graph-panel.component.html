@@ -11,8 +11,10 @@
     <!-- Network Diagram -->
     <svg class="network-diagram" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
       <!-- Edges -->
-      <path d="M 150 100 Q 200 100 250 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
-      <path d="M 350 100 Q 400 100 450 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <!-- Arrow image between node 1 and node 2 -->
+      <image x="140" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
+      <!-- Arrow image between node 2 and node 3 -->
+      <image x="340" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
       <path d="M 550 100 Q 600 70 650 30" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
       <path d="M 550 100 Q 600 130 650 170" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
       
@@ -25,28 +27,22 @@
       
       <!-- Node 1: User node with purple overlay -->
       <g class="node" (click)="onNodeClick('1')">
-        <circle cx="100" cy="100" r="40" fill="#FEECEB" stroke="#E0E0E0" stroke-width="2" />
-        <text x="100" y="105" text-anchor="middle" font-size="20">🎭</text>
-        <!-- Purple overlay -->
-        <circle cx="125" cy="75" r="12" fill="#7E57C2" />
-        <text x="125" y="80" text-anchor="middle" font-size="10" fill="white">👥</text>
+        <image x="72" y="72" width="56" height="56" href="assets/icons/5.svg" />
         <!-- Label -->
         <text x="100" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
-        <text x="100" y="175" text-anchor="middle" font-size="12" fill="#999">FW</text>
       </g>
       
       <!-- Node 2: Server node -->
       <g class="node" (click)="onNodeClick('2')">
-        <circle cx="300" cy="100" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="300" y="105" text-anchor="middle" font-size="20">🖥️</text>
+        
+        <image x="272" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
         <text x="300" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 3: Server node -->
       <g class="node" (click)="onNodeClick('3')">
-        <circle cx="500" cy="100" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="500" y="105" text-anchor="middle" font-size="20">🖥️</text>
+        <image x="472" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
         <text x="500" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
