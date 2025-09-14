@@ -128,11 +128,11 @@
 }
 
 .popover-content {
-  background: white;
+  background: $color-background; // $surface
   border: $border-width-xs solid $color-border;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-lg;
-  overflow: hidden;
+  border-radius: $border-radius-xl; // $radius-xl
+  box-shadow: $shadow-sm; // $shadow-2
+  padding: $spacing-md; // smaller padding for very small cards
   animation: popoverFadeIn 0.2s ease-out;
 }
 
@@ -147,55 +147,55 @@
   }
 }
 
-.popover-header {
-  padding: $spacing-md $spacing-lg;
+// Title chip - left-aligned pill
+.title-chip {
+  margin-top: $spacing-sm; // $space-2 - small top margin
+  margin-bottom: $spacing-md; // $space-3 - space before grid
   
-  &.red-bg {
-    background: #FFE5E5;
-    
-    .popover-title {
-      color: #DC2626;
-      font-weight: $font-weight-semibold;
-      font-size: $font-size-md;
-    }
+  .title-text {
+    display: inline-block;
+    background: #FEE2E2; // $critical-bg - pale red background
+    color: #DC2626; // $critical-fg - bold red text
+    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
+    border-radius: $border-radius-md; // smaller radius for very small cards
+    font-size: 10px; // 10px text
+    font-weight: $font-weight-semibold; // bold
+    margin: 0;
   }
 }
 
-.popover-title {
-  margin: 0;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
-  color: $color-text;
-}
-
-.popover-ip-grid {
+// IP grid - 2 rows, 3 columns
+.ip-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xs;
-  padding: $spacing-md $spacing-lg;
+  gap: $spacing-xs; // smaller gaps for very small cards
+  margin-bottom: $spacing-md; // $space-3 - space before footer pill
   
-  .ip-item {
-    background: #FFE5E5;
-    color: #DC2626;
-    padding: $spacing-xs $spacing-sm;
-    border-radius: $border-radius-sm;
-    font-size: $font-size-sm;
+  .ip-pill {
+    background: #FEE2E2; // $critical-bg - pale red background
+    color: #DC2626; // $critical-fg - bold red text
+    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
+    border-radius: $border-radius-md; // smaller radius for very small cards
+    font-size: 10px; // 10px text
+    font-weight: $font-weight-semibold; // bold
     text-align: center;
-    font-weight: $font-weight-medium;
+    border: none;
   }
 }
 
-.popover-footer {
-  padding: $spacing-md $spacing-lg;
+// Footer pill - single lavender pill at bottom left
+.footer-pill {
+  margin-top: $spacing-md; // $space-3 - top margin from grid
   
-  &.purple-bg {
-    background: #F3E8FF;
-    
-    .footer-text {
-      color: #7C3AED;
-      font-weight: $font-weight-medium;
-      font-size: $font-size-sm;
-    }
+  .footer-text {
+    display: inline-block;
+    background: #EDE9FE; // $info-bg - lavender background
+    color: #6D28D9; // $info-fg - bold indigo text
+    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
+    border-radius: $border-radius-md; // smaller radius for very small cards
+    font-size: 10px; // 10px text
+    font-weight: $font-weight-semibold; // bold
+    margin: 0;
   }
 }
 
