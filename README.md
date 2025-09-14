@@ -2,6 +2,11 @@
 
 A modern Angular 20+ application featuring a comprehensive security dashboard with asset management, risk visualization, and interactive graphs.
 
+## 🔗 Links
+
+- **Live Site**: [https://spikerz-git-master-stellavins-projects.vercel.app/](https://spikerz-git-master-stellavins-projects.vercel.app/)
+- **GitHub Repository**: [https://github.com/stellavin/spartz](https://github.com/stellavin/spartz)
+
 ## Features
 
 - **Angular 20+** with standalone components and modern architecture
