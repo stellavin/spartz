@@ -1,4 +1,4 @@
-@import '../../../../core/styles/variables';
+@import '../../../../../core/styles/variables';
 
 .risk-summary-card {
   background: $color-background;
@@ -107,4 +107,35 @@
   .chart-total {
     font-size: 1.5rem;
   }
+}
+
+// Loading and empty states
+.loading-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  color: $color-text-light;
+  font-size: $font-size-sm;
+  
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color-border-light;
+    border-top: 2px solid $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.empty-state {
+  font-style: italic;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

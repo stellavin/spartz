@@ -1,0 +1,16 @@
+<div class="assets-and-risk-section" role="region" aria-label="Assets and Risk Management Section">
+  <h2 class="section-title">{{ sectionTitle }}</h2>
+  <div class="section-grid">
+    <div class="grid-item">
+      <app-assets-table 
+        [assets]="assets">
+      </app-assets-table>
+    </div>
+    <div class="grid-item">
+      <app-contextual-risk-summary 
+        [riskSummary]="riskSummary"
+        [isLoading]="isLoading">
+      </app-contextual-risk-summary>
+    </div>
+  </div>
+</div>

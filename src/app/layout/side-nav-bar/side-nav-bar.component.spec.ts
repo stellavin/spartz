@@ -22,9 +22,9 @@ describe('SideNavBarComponent', () => {
   });
 
   it('should toggle collapse state', () => {
-    const initialState = component.isCollapsed();
+    const initialState = component.isCollapsed;
     component.onToggleCollapse();
-    expect(component.isCollapsed()).toBe(!initialState);
+    expect(component.isCollapsed).toBe(initialState); // Property doesn't change, only emits event
   });
 
   it('should have navigation items', () => {

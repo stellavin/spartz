@@ -1,0 +1,55 @@
+<div class="risk-summary-card" role="region" aria-label="Contextual Risk Summary">
+  <h3 class="card-title">Contextual Risk</h3>
+  
+  <div class="risk-content" *ngIf="!isLoading; else loadingTemplate">
+    <div class="risk-legend" role="list" aria-label="Risk level breakdown">
+      <div 
+        class="legend-item" 
+        *ngFor="let risk of sortedRiskSummary; trackBy: trackByRiskLevel"
+        role="listitem"
+        [attr.aria-label]="risk.count + ' ' + risk.level + ' risk items'"
+      >
+        <div 
+          class="legend-dot"
+          [class]="getRiskLevelDotClass(risk.level)"
+          [style.background-color]="risk.color"
+          aria-hidden="true"
+        ></div>
+        <span class="legend-count" aria-label="Count">{{ risk.count }}</span>
+        <span class="legend-label" aria-label="Risk level">{{ risk.level }}</span>
+      </div>
+    </div>
+    
+    <div class="risk-chart" aria-label="Critical risk gauge">
+      <div 
+        class="donut-chart" 
+        role="img" 
+        [attr.aria-label]="'Risk gauge showing ' + getCriticalCount() + ' critical risks'"
+      >
+        <div class="chart-center">
+          <span 
+            class="chart-total"
+            [attr.aria-label]="getCriticalCount() + ' critical risks'"
+            role="text"
+          >
+            {{ getCriticalCount() }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Loading state -->
+  <ng-template #loadingTemplate>
+    <div class="loading-state" role="status" aria-label="Loading risk data">
+      <div class="loading-spinner"></div>
+      <span>Loading risk data...</span>
+    </div>
+  </ng-template>
+  
+  <!-- Empty state -->
+  <div *ngIf="!isLoading && !hasRisks" class="empty-state" role="status">
+    <p>No risk data available</p>
+  </div>
+</div>
+

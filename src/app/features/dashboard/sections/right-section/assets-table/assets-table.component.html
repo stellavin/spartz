@@ -1,0 +1,86 @@
+<div class="assets-table-card" role="region" aria-label="Assets and Risk Table">
+  <div class="table-header" role="rowgroup">
+    <div class="header-cell asset-header" role="columnheader" aria-label="Asset Information">
+      Asset
+    </div>
+    <div class="header-cell risk-header" role="columnheader" aria-label="Risk Level">
+      Contextual Risk
+    </div>
+  </div>
+  
+  <div class="table-body" role="rowgroup" aria-live="polite" aria-label="Asset list">
+    <div 
+      class="table-row" 
+      *ngFor="let asset of paginatedAssets; trackBy: trackByAssetId"
+      role="row"
+      [attr.aria-label]="'Asset ' + asset.name + ' with IP ' + asset.ip + ' has ' + asset.riskLevel + ' risk level'"
+    >
+      <div class="table-cell asset-cell" role="cell">
+        <div class="asset-info">
+          <div class="asset-icon" aria-hidden="true">
+            <i class="pi pi-server"></i>
+          </div>
+          <div class="asset-details">
+            <div class="asset-name" [attr.aria-label]="'Asset name: ' + asset.name">
+              {{ asset.name }}
+            </div>
+            <div class="asset-ip" [attr.aria-label]="'IP address: ' + asset.ip">
+              {{ asset.ip }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-cell risk-cell" role="cell">
+        <div 
+          class="risk-tag"
+          [class]="getRiskLevelClass(asset.riskLevel)"
+          [attr.aria-label]="'Risk level: ' + asset.riskLevel"
+          role="status"
+        >
+          {{ asset.riskLevel }}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="loading-state" role="status" aria-label="Loading assets">
+      <div class="loading-spinner"></div>
+      <span>Loading assets...</span>
+    </div>
+    
+    <!-- Empty state -->
+    <div *ngIf="!isLoading && paginatedAssets.length === 0" class="empty-state" role="status">
+      <p>No assets found</p>
+    </div>
+  </div>
+  
+  <div class="pagination-footer" *ngIf="assets.length > itemsPerPage">
+    <div class="pagination-controls" role="navigation" aria-label="Pagination">
+      <button 
+        type="button"
+        class="pagination-arrow"
+        [disabled]="!canGoToPreviousPage"
+        (click)="goToPreviousPage()"
+        aria-label="Go to previous page"
+        [attr.aria-disabled]="!canGoToPreviousPage"
+      >
+        <i class="pi pi-chevron-left" aria-hidden="true"></i>
+      </button>
+      
+      <span class="pagination-text" aria-live="polite">
+        {{ paginationInfo }}
+      </span>
+      
+      <button 
+        type="button"
+        class="pagination-arrow"
+        [disabled]="!canGoToNextPage"
+        (click)="goToNextPage()"
+        aria-label="Go to next page"
+        [attr.aria-disabled]="!canGoToNextPage"
+      >
+        <i class="pi pi-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

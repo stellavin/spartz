@@ -1,4 +1,4 @@
-@import '../../../../core/styles/variables';
+@import '../../../../../core/styles/variables';
 
 .assets-table-card {
   background: $color-background;
@@ -124,15 +124,34 @@
   max-width: 100%;
 }
 
+// Risk level variants
 .risk-tag {
-  background: #ffebee;
-  color: #c62828;
   padding: $spacing-xs $spacing-sm;
   border-radius: 12px;
   font-size: $font-size-sm;
   font-weight: $font-weight-semibold;
   text-align: center;
   min-width: 60px;
+  
+  &--critical {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  &--high {
+    background: #ffebee;
+    color: #c62828;
+  }
+  
+  &--medium {
+    background: #fff3e0;
+    color: #ef6c00;
+  }
+  
+  &--low {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
 }
 
 .pagination-footer {
@@ -161,4 +180,35 @@
 .pagination-text {
   color: $color-text-light;
   font-size: $font-size-sm;
+}
+
+// Loading and empty states
+.loading-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  color: $color-text-light;
+  font-size: $font-size-sm;
+  
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color-border-light;
+    border-top: 2px solid $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.empty-state {
+  font-style: italic;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
