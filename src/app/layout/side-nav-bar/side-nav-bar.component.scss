@@ -125,7 +125,14 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
       span {
         transition: all $transition-duration $transition-easing;
+        font-family: inherit;
         font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        vertical-align: middle;
+        text-transform: capitalize;
         opacity: 1;
         visibility: visible;
         white-space: nowrap;
@@ -191,7 +198,14 @@ $nav-shadow: 0 0 0 1px $color-border, 0 0 18px $color-shadow;
 
       span {
         transition: all $transition-duration $transition-easing;
+        font-family: inherit;
         font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        vertical-align: middle;
+        text-transform: capitalize;
         opacity: 1;
         visibility: visible;
         white-space: nowrap;
