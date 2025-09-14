@@ -27,7 +27,7 @@ export class AssetsAndRiskSectionComponent implements OnInit {
   isLoading = false;
   
   /** Section title */
-  sectionTitle = 'Assets & Risk Overview';
+  sectionTitle = 'Lorem ipsum dolor sit';
 
   constructor(private cdr: ChangeDetectorRef) {}
 
