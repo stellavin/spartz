@@ -1,7 +1,7 @@
 @import '../../core/styles/variables';
 
 .dashboard-container {
-  padding: $spacing-md $spacing-xl $spacing-xl 0;
+  padding: 0 $spacing-sm $spacing-sm 0;
   max-width: $container-max-width;
   margin: 0 auto;
   min-height: 100vh;
@@ -10,7 +10,7 @@
 .dashboard-content {
   display: grid;
   grid-template-columns: 30% 70%;
-  gap: 2rem;
+  gap: 1rem;
   align-items: start;
   margin-top: 0;
 }
