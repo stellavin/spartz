@@ -1,0 +1,141 @@
+<div 
+  *ngIf="position.visible && node" 
+  class="node-popover"
+  [style.left.px]="position.x"
+  [style.top.px]="position.y"
+  (mouseenter)="onHover()"
+  (mouseleave)="onLeave()"
+>
+  <div class="popover-content">
+    <!-- Close button -->
+    <button 
+      *ngIf="showCloseButton" 
+      class="popover-close" 
+      (click)="onClose()" 
+      aria-label="Close popover"
+    >
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    
+    <!-- Custom content slot -->
+    <ng-content *ngIf="customContent"></ng-content>
+    
+    <!-- Default content -->
+    <div *ngIf="!customContent">
+      <!-- Type 1 Popup: Lorem Ipsum Dolor Sit with red tags and grid -->
+      <div *ngIf="node.popupType === 'type1'" class="popup-type1">
+        <!-- Title chip - centered -->
+        <div class="title-chip type1">
+          <span class="title-text">Lorem Ipsum Dolor Sit</span>
+        </div>
+        
+        <!-- Grid of items - 3x2 layout -->
+        <div class="items-grid">
+          <span class="item-pill type1">1.2.3.4</span>
+          <span class="item-pill type1">1.2.3.4</span>
+          <span class="item-pill type1">1.2.3.4</span>
+          <span class="item-pill type1">1.2.3.4</span>
+          <span class="item-pill type1">1.2.3.4</span>
+          <span class="item-pill type1">1.2.3.4</span>
+        </div>
+        
+        <!-- Bottom item - left aligned -->
+        <div class="bottom-item">
+          <span class="bottom-pill type1">Lorem: 1.2.3.4</span>
+        </div>
+      </div>
+
+      <!-- Type 2 Popup: Server card with blue icon and purple tags -->
+      <div *ngIf="node.popupType === 'type2'" class="popup-type2">
+        <!-- Header with icon and name -->
+        <div class="header-section">
+          <div class="icon-container">
+            <img src="assets/icons/node-2.svg" alt="Server" class="server-icon-svg" />
+          </div>
+          <div class="name-section">
+            <span class="server-name">{{ node.label }}</span>
+          </div>
+        </div>
+        
+        <!-- Description with purple tag -->
+        <div class="description-section">
+          <div class="doc-icon"></div>
+          <span class="description-text">Lorem: Loremipsum Loremipsum</span>
+          <span class="purple-tag">1.2.3.4</span>
+        </div>
+        
+        <!-- Bottom tags -->
+        <div class="tags-section">
+          <span class="purple-tag">1.2.3.4</span>
+          <span class="tag-text">Loremipsum</span>
+          <span class="purple-tag">1.2.3.4</span>
+          <span class="purple-tag">1.2.3.4</span>
+        </div>
+      </div>
+
+      <!-- Type 3 Popup: Detailed server info with red shield icon -->
+      <div *ngIf="node.popupType === 'type3'" class="popup-type3">
+        <!-- Header with icons and identifiers -->
+        <div class="header-section">
+          <div class="icon-container">
+            <img src="assets/icons/node-2.svg" alt="Server" class="server-icon-svg" />
+            <div class="red-shield-icon"></div>
+          </div>
+          <div class="name-section">
+            <span class="server-name">{{ node.label }}</span>
+            <span class="ip-address">{{ node.ipAddress }}</span>
+          </div>
+        </div>
+        
+        <!-- First data field -->
+        <div class="data-field">
+          <div class="doc-icon"></div>
+          <span class="field-label">Lorem:</span>
+          <span class="field-value orange">Lorem "Ipsum"</span>
+        </div>
+        
+        <!-- Second data field -->
+        <div class="data-field">
+          <span class="field-label">Loremipsum</span>
+          <span class="field-value blue">Lorem 1234,5678</span>
+        </div>
+      </div>
+
+      <!-- Default popup for nodes without specific type -->
+      <div *ngIf="!node.popupType">
+        <!-- Title chip -->
+        <div class="title-chip">
+          <span class="title-text">{{ node.label }}</span>
+        </div>
+        
+        <!-- Risk level indicator -->
+        <div class="risk-indicator" [ngClass]="getRiskLevelClass(node.riskLevel)">
+          <span class="risk-text">{{ getRiskLevelText(node.riskLevel) }}</span>
+        </div>
+        
+        <!-- IP grid -->
+        <div class="ip-grid" *ngIf="node.ipAddress">
+          <span class="ip-pill">{{ node.ipAddress }}</span>
+          <span class="ip-pill">192.168.1.3</span>
+          <span class="ip-pill">192.168.1.4</span>
+          <span class="ip-pill">192.168.1.5</span>
+          <span class="ip-pill">192.168.1.6</span>
+          <span class="ip-pill">192.168.1.7</span>
+        </div>
+        
+        <!-- Node type info -->
+        <div class="node-info">
+          <span class="node-type">{{ node.type | titlecase }}</span>
+          <span class="node-id">ID: {{ node.id }}</span>
+        </div>
+        
+        <!-- Footer pill -->
+        <div class="footer-pill">
+          <span class="footer-text">Status: {{ getRiskLevelText(node.riskLevel) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

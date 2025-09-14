@@ -9,10 +9,11 @@
     <div class="grid-background"></div>
     
     <!-- Network Diagram -->
-    <svg class="network-diagram" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+    <svg class="network-diagram" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" (click)="onGraphClick($event)">
       <!-- Edges -->
       <!-- Arrow image between node 1 and node 2 -->
-      <image x="140" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
+      <image x="140" y="80" width="80" height=
+      "40" href="assets/icons/arrow-1.svg" />
       <!-- Arrow image between node 2 and node 3 -->
       <image x="340" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
       <!-- Arrow image from node 3 to nodes 4 and 5 -->
@@ -26,29 +27,48 @@
       </defs>
       
       <!-- Node 1: User node with purple overlay -->
-      <g class="node" (mouseenter)="onNodeHover('1', $event)" (mouseleave)="onNodeLeave()">
+      <g 
+        [class]="getNodeClasses('1')" 
+        (mouseenter)="onNodeHover('1', $event)" 
+        (mouseleave)="onNodeLeave()"
+        (click)="onNodeClick('1', $event)"
+      >
         <image x="72" y="72" width="56" height="56" href="assets/icons/5.svg" />
         <!-- Label -->
         <text x="100" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
       </g>
       
       <!-- Node 2: Server node -->
-      <g class="node" (mouseenter)="onNodeHover('2', $event)" (mouseleave)="onNodeLeave()">
-        
+      <g 
+        [class]="getNodeClasses('2')" 
+        (mouseenter)="onNodeHover('2', $event)" 
+        (mouseleave)="onNodeLeave()"
+        (click)="onNodeClick('2', $event)"
+      >
         <image x="272" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
         <text x="300" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 3: Server node -->
-      <g class="node" (mouseenter)="onNodeHover('3', $event)" (mouseleave)="onNodeLeave()">
+      <g 
+        [class]="getNodeClasses('3')" 
+        (mouseenter)="onNodeHover('3', $event)" 
+        (mouseleave)="onNodeLeave()"
+        (click)="onNodeClick('3', $event)"
+      >
         <image x="472" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
         <text x="500" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 4: Server node -->
-      <g class="node" (mouseenter)="onNodeHover('4', $event)" (mouseleave)="onNodeLeave()">
+      <g 
+        [class]="getNodeClasses('4')" 
+        (mouseenter)="onNodeHover('4', $event)" 
+        (mouseleave)="onNodeLeave()"
+        (click)="onNodeClick('4', $event)"
+      >
         <image x="672" y="2" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="90" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
@@ -56,7 +76,12 @@
       </g>
       
       <!-- Node 5: Server node -->
-      <g class="node" (mouseenter)="onNodeHover('5', $event)" (mouseleave)="onNodeLeave()">
+      <g 
+        [class]="getNodeClasses('5')" 
+        (mouseenter)="onNodeHover('5', $event)" 
+        (mouseleave)="onNodeLeave()"
+        (click)="onNodeClick('5', $event)"
+      >
         <image x="672" y="142" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="230" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
@@ -86,34 +111,10 @@
 </div>
 
   <!-- Node Popover -->
-  <div 
-    *ngIf="popover.visible && selectedNode" 
-    class="node-popover"
-    [style.left.px]="popover.x"
-    [style.top.px]="popover.y"
-    (mouseenter)="onPopoverHover()"
-    (mouseleave)="onPopoverLeave()"
-    (click)="closePopover()"
-  >
-    <div class="popover-content">
-      <!-- Title chip -->
-      <div class="title-chip">
-        <span class="title-text">Lorem Ipsum Dolor Sit</span>
-      </div>
-      
-      <!-- IP grid -->
-      <div class="ip-grid">
-        <span class="ip-pill">1.2.3.4</span>
-        <span class="ip-pill">1.2.3.4</span>
-        <span class="ip-pill">1.2.3.4</span>
-        <span class="ip-pill">1.2.3.4</span>
-        <span class="ip-pill">1.2.3.4</span>
-        <span class="ip-pill">1.2.3.4</span>
-      </div>
-      
-      <!-- Footer pill -->
-      <div class="footer-pill">
-        <span class="footer-text">Lorem: 1.2.3.4</span>
-      </div>
-    </div>
-  </div>
+  <app-node-popover
+    [node]="selectedNode"
+    [position]="popover"
+    (close)="closePopover()"
+    (hover)="onPopoverHover()"
+    (leave)="onPopoverLeave()"
+  ></app-node-popover>

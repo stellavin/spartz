@@ -59,6 +59,42 @@
     transform-origin: center;
   }
 
+  &.selected {
+    transform: scale(1.1);
+    transform-origin: center;
+    
+    image {
+      filter: drop-shadow(0 0 8px rgba(0, 115, 46, 0.3));
+    }
+  }
+
+  &.hovered {
+    transform: scale(1.05);
+    transform-origin: center;
+    
+    image {
+      filter: drop-shadow(0 0 4px rgba(0, 115, 46, 0.2));
+    }
+  }
+
+  &.risk-critical {
+    image {
+      filter: drop-shadow(0 0 2px rgba(220, 53, 69, 0.3));
+    }
+  }
+
+  &.risk-warning {
+    image {
+      filter: drop-shadow(0 0 2px rgba(253, 126, 20, 0.3));
+    }
+  }
+
+  &.risk-safe {
+    image {
+      filter: drop-shadow(0 0 2px rgba(40, 167, 69, 0.3));
+    }
+  }
+
   circle {
     transition: all $transition-duration $transition-easing;
   }
@@ -120,88 +156,9 @@
   }
 }
 
-// Node Popover Styles
-.node-popover {
-  position: fixed; // Use fixed positioning to avoid container issues
-  z-index: $z-index-popover;
-  pointer-events: auto;
-  max-width: 300px;
-  min-width: 250px;
-  // Ensure popover doesn't interfere with mouse events on nodes
-  transform: translateZ(0); // Force hardware acceleration
-}
+// Popover styles moved to dedicated node-popover component
 
-.popover-content {
-  background: $color-background; // $surface
-  border: $border-width-xs solid $color-border;
-  border-radius: $border-radius-xl; // $radius-xl
-  box-shadow: $shadow-sm; // $shadow-2
-  padding: $spacing-md; // smaller padding for very small cards
-  animation: popoverFadeIn 0.2s ease-out;
-}
-
-@keyframes popoverFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-// Title chip - left-aligned pill
-.title-chip {
-  margin-top: $spacing-sm; // $space-2 - small top margin
-  margin-bottom: $spacing-md; // $space-3 - space before grid
-  
-  .title-text {
-    display: inline-block;
-    background: #FEE2E2; // $critical-bg - pale red background
-    color: #DC2626; // $critical-fg - bold red text
-    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
-    border-radius: $border-radius-md; // smaller radius for very small cards
-    font-size: 10px; // 10px text
-    font-weight: $font-weight-semibold; // bold
-    margin: 0;
-  }
-}
-
-// IP grid - 2 rows, 3 columns
-.ip-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xs; // smaller gaps for very small cards
-  margin-bottom: $spacing-md; // $space-3 - space before footer pill
-  
-  .ip-pill {
-    background: #FEE2E2; // $critical-bg - pale red background
-    color: #DC2626; // $critical-fg - bold red text
-    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
-    border-radius: $border-radius-md; // smaller radius for very small cards
-    font-size: 10px; // 10px text
-    font-weight: $font-weight-semibold; // bold
-    text-align: center;
-    border: none;
-  }
-}
-
-// Footer pill - single lavender pill at bottom left
-.footer-pill {
-  margin-top: $spacing-md; // $space-3 - top margin from grid
-  
-  .footer-text {
-    display: inline-block;
-    background: #EDE9FE; // $info-bg - lavender background
-    color: #6D28D9; // $info-fg - bold indigo text
-    padding: $spacing-xs $spacing-sm; // smaller padding for very small cards
-    border-radius: $border-radius-md; // smaller radius for very small cards
-    font-size: 10px; // 10px text
-    font-weight: $font-weight-semibold; // bold
-    margin: 0;
-  }
-}
+// IP grid and footer pill styles moved to node-popover component
 
 .popover-button {
   display: flex;
@@ -244,33 +201,67 @@
 }
 
 // Responsive Design
+@media (max-width: 1200px) {
+  .network-diagram {
+    min-height: 180px;
+  }
+}
+
 @media (max-width: 768px) {
-  .graph-panel-header {
-    padding: $spacing-md;
-  }
-
-  .graph-panel-title {
+  .graph-title {
     font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
   }
 
-  .graph-panel-content {
-    padding: $spacing-md;
+  .graph-container {
+    min-height: 250px;
   }
 
-  .react-flow-container {
-    height: 300px;
+  .network-diagram {
+    min-height: 150px;
   }
 
-  .node-popover {
-    max-width: 280px;
-    min-width: 220px;
+  .legend {
+    flex-wrap: wrap;
+    gap: $spacing-sm;
   }
 
-  .popover-actions {
+  .legend-item {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .graph-container {
+    min-height: 200px;
+  }
+
+  .network-diagram {
+    min-height: 120px;
+  }
+
+  .legend {
     flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xs;
   }
 
-  .popover-button {
+  .legend-item {
     flex: none;
+    min-width: auto;
+  }
+}
+
+// Touch device optimizations
+@media (hover: none) and (pointer: coarse) {
+  .node {
+    &:hover {
+      transform: none;
+    }
+    
+    &.selected {
+      transform: scale(1.05);
+    }
   }
 }
