@@ -3,14 +3,18 @@
 
 <!-- Main Content Card -->
 <div>
-  <!-- Graph Container -->
+  <!-- Graph Container with Background -->
   <div class="graph-container">
-    <svg class="network-diagram" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Dotted Grid Background -->
+    <div class="grid-background"></div>
+    
+    <!-- Network Diagram -->
+    <svg class="network-diagram" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
       <!-- Edges -->
-      <path d="M 150 150 Q 200 150 250 150" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
-      <path d="M 350 150 Q 400 150 450 150" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
-      <path d="M 550 150 Q 600 120 650 80" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
-      <path d="M 550 150 Q 600 180 650 220" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 150 100 Q 200 100 250 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 350 100 Q 400 100 450 100" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 550 100 Q 600 70 650 30" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <path d="M 550 100 Q 600 130 650 170" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
       
       <!-- Arrow marker definition -->
       <defs>
@@ -21,71 +25,74 @@
       
       <!-- Node 1: User node with purple overlay -->
       <g class="node" (click)="onNodeClick('1')">
-        <circle cx="100" cy="150" r="40" fill="#FEECEB" stroke="#E0E0E0" stroke-width="2" />
-        <text x="100" y="155" text-anchor="middle" font-size="20">🎭</text>
+        <circle cx="100" cy="100" r="40" fill="#FEECEB" stroke="#E0E0E0" stroke-width="2" />
+        <text x="100" y="105" text-anchor="middle" font-size="20">🎭</text>
         <!-- Purple overlay -->
-        <circle cx="125" cy="125" r="12" fill="#7E57C2" />
-        <text x="125" y="130" text-anchor="middle" font-size="10" fill="white">👥</text>
+        <circle cx="125" cy="75" r="12" fill="#7E57C2" />
+        <text x="125" y="80" text-anchor="middle" font-size="10" fill="white">👥</text>
         <!-- Label -->
-        <text x="100" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
-        <text x="100" y="225" text-anchor="middle" font-size="12" fill="#999">FW</text>
+        <text x="100" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
+        <text x="100" y="175" text-anchor="middle" font-size="12" fill="#999">FW</text>
       </g>
       
       <!-- Node 2: Server node -->
       <g class="node" (click)="onNodeClick('2')">
-        <circle cx="300" cy="150" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="300" y="155" text-anchor="middle" font-size="20">🖥️</text>
+        <circle cx="300" cy="100" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="300" y="105" text-anchor="middle" font-size="20">🖥️</text>
         <!-- Label -->
-        <text x="300" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
+        <text x="300" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 3: Server node -->
       <g class="node" (click)="onNodeClick('3')">
-        <circle cx="500" cy="150" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="500" y="155" text-anchor="middle" font-size="20">🖥️</text>
+        <circle cx="500" cy="100" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="500" y="105" text-anchor="middle" font-size="20">🖥️</text>
         <!-- Label -->
-        <text x="500" y="210" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
+        <text x="500" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 4: Server node with risk badge (top) -->
       <g class="node" (click)="onNodeClick('4')">
-        <circle cx="700" cy="80" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="700" y="85" text-anchor="middle" font-size="20">🖥️</text>
+        <circle cx="700" cy="30" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="700" y="35" text-anchor="middle" font-size="20">🖥️</text>
         <!-- Risk badge -->
-        <circle cx="730" cy="60" r="12" fill="#EF5350" />
-        <text x="730" y="65" text-anchor="middle" font-size="10" fill="white">⚠️</text>
+        <circle cx="730" cy="10" r="12" fill="#EF5350" />
+        <text x="730" y="15" text-anchor="middle" font-size="10" fill="white">✕</text>
         <!-- Label -->
-        <text x="700" y="140" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
-        <text x="700" y="155" text-anchor="middle" font-size="12" fill="#999">192.168.1.1</text>
+        <text x="700" y="90" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
+        <text x="700" y="105" text-anchor="middle" font-size="12" fill="#999">192.168.1.1</text>
       </g>
       
       <!-- Node 5: Server node with risk badge (bottom) -->
       <g class="node" (click)="onNodeClick('5')">
-        <circle cx="700" cy="220" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="700" y="225" text-anchor="middle" font-size="20">🖥️</text>
+        <circle cx="700" cy="170" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
+        <text x="700" y="175" text-anchor="middle" font-size="20">🖥️</text>
         <!-- Risk badge -->
-        <circle cx="730" cy="200" r="12" fill="#EF5350" />
-        <text x="730" y="205" text-anchor="middle" font-size="10" fill="white">⚠️</text>
+        <circle cx="730" cy="150" r="12" fill="#EF5350" />
+        <text x="730" y="155" text-anchor="middle" font-size="10" fill="white">✕</text>
         <!-- Label -->
-        <text x="700" y="280" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
-        <text x="700" y="295" text-anchor="middle" font-size="12" fill="#999">192.168.1.2</text>
+        <text x="700" y="230" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
+        <text x="700" y="245" text-anchor="middle" font-size="12" fill="#999">192.168.1.2</text>
       </g>
     </svg>
-  </div>
-  
-  <!-- Legend -->
-  <div class="legend">
-    <div class="legend-chip critical">
-      <span class="legend-icon">🛡️</span>
-      <span class="legend-text">Lorem</span>
-    </div>
-    <div class="legend-chip warning">
-      <span class="legend-icon">🛡️</span>
-      <span class="legend-text">Lorem</span>
-    </div>
-    <div class="legend-chip secure">
-      <span class="legend-icon">🛡️</span>
-      <span class="legend-text">Lorem</span>
+    
+    <!-- Divider Line -->
+    <div class="divider"></div>
+    
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item critical">
+        <img src="assets/icons/1.png" alt="Critical" class="legend-icon" />
+        <span class="legend-text">Lorem</span>
+      </div>
+      <div class="legend-item warning">
+        <img src="assets/icons/2.png" alt="Warning" class="legend-icon" />
+        <span class="legend-text">Lorem</span>
+      </div>
+      <div class="legend-item secure">
+        <img src="assets/icons/3.png" alt="Secure" class="legend-icon" />
+        <span class="legend-text">Lorem</span>
+      </div>
     </div>
   </div>
 </div>

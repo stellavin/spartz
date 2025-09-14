@@ -20,17 +20,32 @@
 
 .graph-container {
   width: 100%;
-  height: 400px;
+  min-height: 300px; // Use min-height instead of fixed height
   position: relative;
-  background: #fafafa;
+  background: #f8f9fa; // Light gray background
   border-radius: $border-radius-md;
   overflow: hidden;
+  // No border or shadow
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // No dots - clean background
+  pointer-events: none;
 }
 
 .network-diagram {
   width: 100%;
-  height: 100%;
+  flex: 1; // Take available space
+  min-height: 200px; // Minimum height for diagram
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .node {
@@ -53,51 +68,54 @@
 }
 
 
-// Legend - positioned at bottom left as in image
-.legend {
-  display: flex;
-  gap: $spacing-lg;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: $spacing-lg;
+// Divider line
+.divider {
+  width: calc(100% - #{$spacing-xl * 2}); // Use spacing tokens for margins
+  height: $border-width-xs;
+  background: $color-border; // Use color token
+  margin: 0 $spacing-xl; // Use spacing token for horizontal margins
+  flex-shrink: 0;
 }
 
-.legend-chip {
+// Legend - positioned at bottom inside gray area
+.legend {
+  display: flex;
+  gap: $spacing-lg; // Use spacing token for gap between items
+  justify-content: flex-start;
+  align-items: center;
+  padding: $spacing-md $spacing-xl $spacing-md $spacing-xl; // Balanced padding using tokens
+  flex-shrink: 0;
+}
+
+.legend-item {
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: #424242; // Dark gray from image
-
-  &.critical {
-    .legend-icon {
-      color: #EF5350; // Red shield
-    }
-  }
-
-  &.warning {
-    .legend-icon {
-      color: #FFA726; // Orange shield
-    }
-  }
-
-  &.secure {
-    .legend-icon {
-      color: #66BB6A; // Green shield
-    }
-  }
+  gap: $spacing-sm; // Use spacing token for gap between icon and text
 }
 
 .legend-icon {
-  font-size: $font-size-sm;
-  margin-right: $spacing-xs;
+  width: $icon-size-md; // Use icon size token
+  height: $icon-size-md; // Use icon size token
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .legend-text {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: #424242; // Dark gray from image
+  font-size: $font-size-base; // Use font size token
+  font-weight: $font-weight-medium; // Use font weight token
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  .critical & {
+    color: $color-risk-critical; // Use risk color token
+  }
+
+  .warning & {
+    color: $color-risk-medium; // Use risk color token
+  }
+
+  .secure & {
+    color: $color-risk-low; // Use risk color token
+  }
 }
 
 // Node Popover Styles
