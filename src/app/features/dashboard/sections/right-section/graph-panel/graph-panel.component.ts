@@ -26,6 +26,7 @@ interface PopoverPosition {
 export class GraphPanelComponent implements OnInit {
   popover: PopoverPosition = { x: 0, y: 0, visible: false };
   selectedNode: NodeData | null = null;
+  private hoverTimeout: any = null;
 
   private nodeData: NodeData[] = [
     {
@@ -69,19 +70,43 @@ export class GraphPanelComponent implements OnInit {
   }
 
   onNodeHover(nodeId: string, event: MouseEvent) {
+    // Clear any existing timeout
+    if (this.hoverTimeout) {
+      clearTimeout(this.hoverTimeout);
+    }
+
     this.selectedNode = this.nodeData.find(node => node.id === nodeId) || null;
     
     if (this.selectedNode) {
-      // Position popover near the mouse cursor
+      // Position popover to the right of the mouse cursor to avoid interference
+      const offsetX = 20;
+      const offsetY = -20;
+      
       this.popover = {
-        x: event.pageX + 10,
-        y: event.pageY - 10,
+        x: event.pageX + offsetX,
+        y: event.pageY + offsetY,
         visible: true
       };
     }
   }
 
   onNodeLeave() {
+    // Add a small delay before hiding to prevent rapid show/hide
+    this.hoverTimeout = setTimeout(() => {
+      this.popover.visible = false;
+      this.selectedNode = null;
+    }, 100);
+  }
+
+  onPopoverHover() {
+    // Clear timeout when hovering over popover to keep it visible
+    if (this.hoverTimeout) {
+      clearTimeout(this.hoverTimeout);
+    }
+  }
+
+  onPopoverLeave() {
+    // Hide popover when leaving it
     this.popover.visible = false;
     this.selectedNode = null;
   }

@@ -91,6 +91,8 @@
     class="node-popover"
     [style.left.px]="popover.x"
     [style.top.px]="popover.y"
+    (mouseenter)="onPopoverHover()"
+    (mouseleave)="onPopoverLeave()"
     (click)="closePopover()"
   >
     <div class="popover-content">

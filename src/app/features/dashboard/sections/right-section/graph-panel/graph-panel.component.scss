@@ -51,6 +51,8 @@
 .node {
   cursor: pointer;
   transition: all $transition-duration $transition-easing;
+  // Prevent layout shifts during hover
+  will-change: transform;
 
   &:hover {
     transform: scale(1.05);
@@ -120,11 +122,13 @@
 
 // Node Popover Styles
 .node-popover {
-  position: absolute;
+  position: fixed; // Use fixed positioning to avoid container issues
   z-index: $z-index-popover;
   pointer-events: auto;
   max-width: 300px;
   min-width: 250px;
+  // Ensure popover doesn't interfere with mouse events on nodes
+  transform: translateZ(0); // Force hardware acceleration
 }
 
 .popover-content {
