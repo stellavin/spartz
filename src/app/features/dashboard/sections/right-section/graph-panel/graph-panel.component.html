@@ -9,14 +9,14 @@
     <div class="grid-background"></div>
     
     <!-- Network Diagram -->
-    <svg class="network-diagram" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+    <svg class="network-diagram" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
       <!-- Edges -->
       <!-- Arrow image between node 1 and node 2 -->
       <image x="140" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
       <!-- Arrow image between node 2 and node 3 -->
       <image x="340" y="80" width="80" height="40" href="assets/icons/arrow-1.svg" />
-      <path d="M 550 100 Q 600 70 650 30" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
-      <path d="M 550 100 Q 600 130 650 170" stroke="#9E9E9E" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+      <!-- Arrow image from node 3 to nodes 4 and 5 -->
+      <image x="535" y="55" width="120" height="90" href="assets/icons/arrow-2.svg" />
       
       <!-- Arrow marker definition -->
       <defs>
@@ -47,25 +47,17 @@
         <text x="500" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
-      <!-- Node 4: Server node with risk badge (top) -->
+      <!-- Node 4: Server node -->
       <g class="node" (click)="onNodeClick('4')">
-        <circle cx="700" cy="30" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="700" y="35" text-anchor="middle" font-size="20">🖥️</text>
-        <!-- Risk badge -->
-        <circle cx="730" cy="10" r="12" fill="#EF5350" />
-        <text x="730" y="15" text-anchor="middle" font-size="10" fill="white">✕</text>
+        <image x="672" y="2" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="90" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
         <text x="700" y="105" text-anchor="middle" font-size="12" fill="#999">192.168.1.1</text>
       </g>
       
-      <!-- Node 5: Server node with risk badge (bottom) -->
+      <!-- Node 5: Server node -->
       <g class="node" (click)="onNodeClick('5')">
-        <circle cx="700" cy="170" r="40" fill="#E0F2FE" stroke="#E0E0E0" stroke-width="2" />
-        <text x="700" y="175" text-anchor="middle" font-size="20">🖥️</text>
-        <!-- Risk badge -->
-        <circle cx="730" cy="150" r="12" fill="#EF5350" />
-        <text x="730" y="155" text-anchor="middle" font-size="10" fill="white">✕</text>
+        <image x="672" y="142" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="230" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
         <text x="700" y="245" text-anchor="middle" font-size="12" fill="#999">192.168.1.2</text>
