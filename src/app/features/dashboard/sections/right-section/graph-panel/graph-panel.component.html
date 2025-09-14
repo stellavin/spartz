@@ -26,14 +26,14 @@
       </defs>
       
       <!-- Node 1: User node with purple overlay -->
-      <g class="node" (click)="onNodeClick('1')">
+      <g class="node" (mouseenter)="onNodeHover('1', $event)" (mouseleave)="onNodeLeave()">
         <image x="72" y="72" width="56" height="56" href="assets/icons/5.svg" />
         <!-- Label -->
         <text x="100" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsumm</text>
       </g>
       
       <!-- Node 2: Server node -->
-      <g class="node" (click)="onNodeClick('2')">
+      <g class="node" (mouseenter)="onNodeHover('2', $event)" (mouseleave)="onNodeLeave()">
         
         <image x="272" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
@@ -41,14 +41,14 @@
       </g>
       
       <!-- Node 3: Server node -->
-      <g class="node" (click)="onNodeClick('3')">
+      <g class="node" (mouseenter)="onNodeHover('3', $event)" (mouseleave)="onNodeLeave()">
         <image x="472" y="72" width="56" height="56" href="assets/icons/node-2.svg" />
         <!-- Label -->
         <text x="500" y="160" text-anchor="middle" font-size="14" fill="#424242">Loremipsu</text>
       </g>
       
       <!-- Node 4: Server node -->
-      <g class="node" (click)="onNodeClick('4')">
+      <g class="node" (mouseenter)="onNodeHover('4', $event)" (mouseleave)="onNodeLeave()">
         <image x="672" y="2" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="90" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit</text>
@@ -56,7 +56,7 @@
       </g>
       
       <!-- Node 5: Server node -->
-      <g class="node" (click)="onNodeClick('5')">
+      <g class="node" (mouseenter)="onNodeHover('5', $event)" (mouseleave)="onNodeLeave()">
         <image x="672" y="142" width="56" height="56" href="assets/icons/4.svg" />
         <!-- Label -->
         <text x="700" y="230" text-anchor="middle" font-size="14" fill="#424242">Loremipsumdolorsit002</text>
@@ -94,44 +94,21 @@
     (click)="closePopover()"
   >
     <div class="popover-content">
-      <div class="popover-header">
-        <h4 class="popover-title">{{ selectedNode.label }}</h4>
-        <button class="popover-close" type="button" (click)="closePopover()">
-          <i class="pi pi-times"></i>
-        </button>
+      <div class="popover-header red-bg">
+        <span class="popover-title">Lorem Ipsum Dolor Sit</span>
       </div>
       
-      <div class="popover-body">
-        <div class="popover-item">
-          <span class="popover-label">Type:</span>
-          <span class="popover-value">{{ selectedNode.type | titlecase }}</span>
-        </div>
-        
-        <div class="popover-item" *ngIf="selectedNode.ipAddress">
-          <span class="popover-label">IP Address:</span>
-          <span class="popover-value">{{ selectedNode.ipAddress }}</span>
-        </div>
-        
-        <div class="popover-item">
-          <span class="popover-label">Status:</span>
-          <span 
-            class="popover-value risk-indicator"
-            [style.color]="getRiskLevelColor(selectedNode.riskLevel)"
-          >
-            {{ getRiskLevelText(selectedNode.riskLevel) }}
-          </span>
-        </div>
+      <div class="popover-ip-grid">
+        <span class="ip-item">1.2.3.4</span>
+        <span class="ip-item">1.2.3.4</span>
+        <span class="ip-item">1.2.3.4</span>
+        <span class="ip-item">1.2.3.4</span>
+        <span class="ip-item">1.2.3.4</span>
+        <span class="ip-item">1.2.3.4</span>
       </div>
       
-      <div class="popover-actions">
-        <button class="popover-button primary" type="button">
-          <i class="pi pi-eye"></i>
-          View Details
-        </button>
-        <button class="popover-button secondary" type="button">
-          <i class="pi pi-cog"></i>
-          Configure
-        </button>
+      <div class="popover-footer purple-bg">
+        <span class="footer-text">Lorem: 1.2.3.4</span>
       </div>
     </div>
   </div>

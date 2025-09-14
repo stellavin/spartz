@@ -68,22 +68,22 @@ export class GraphPanelComponent implements OnInit {
     // Component initialization
   }
 
-  onNodeClick(nodeId: string) {
+  onNodeHover(nodeId: string, event: MouseEvent) {
     this.selectedNode = this.nodeData.find(node => node.id === nodeId) || null;
     
     if (this.selectedNode) {
-      // Simple popover positioning (center of screen for now)
+      // Position popover near the mouse cursor
       this.popover = {
-        x: 400,
-        y: 200,
+        x: event.pageX + 10,
+        y: event.pageY - 10,
         visible: true
       };
-
-      // Hide popover after 3 seconds
-      setTimeout(() => {
-        this.popover.visible = false;
-      }, 3000);
     }
+  }
+
+  onNodeLeave() {
+    this.popover.visible = false;
+    this.selectedNode = null;
   }
 
   closePopover() {
