@@ -6,13 +6,16 @@
   padding: $spacing-lg;
   box-shadow: 0 2px 8px $color-shadow;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 0; // Allow card to shrink
+  overflow: hidden; // Prevent content overflow
 }
 
 .card-title {
   color: $color-text;
-  font-size: $font-size-lg;
+  font-size: 0.9rem; // Reduced from large size
   font-weight: $font-weight-semibold;
   margin: 0 0 $spacing-sm 0;
 }
@@ -22,6 +25,7 @@
   gap: $spacing-md;
   flex: 1;
   align-items: center;
+  min-width: 0; // Allow content to shrink
 }
 
 .risk-legend {
@@ -47,13 +51,13 @@
 .legend-count {
   color: $color-text;
   font-weight: $font-weight-semibold;
-  font-size: $font-size-base;
+  font-size: 0.7rem; // Reduced from base size
   min-width: 20px;
 }
 
 .legend-label {
   color: $color-text;
-  font-size: $font-size-base;
+  font-size: 0.7rem; // Reduced from base size
 }
 
 .risk-chart {
@@ -61,6 +65,7 @@
   width: 120px;
   height: 120px;
   flex-shrink: 0;
+  max-width: 50%; // Ensure chart doesn't take too much space
 }
 
 .donut-chart {
@@ -87,7 +92,7 @@
 
 .chart-total {
   color: #495057;
-  font-size: 1.8rem;
+  font-size: 1.4rem; // Reduced from 1.8rem
   font-weight: $font-weight-semibold;
   line-height: 1;
 }
@@ -102,10 +107,23 @@
   .risk-chart {
     width: 150px;
     height: 150px;
+    max-width: 100%;
   }
 
   .chart-total {
-    font-size: 1.5rem;
+    font-size: 1.2rem; // Reduced from 1.5rem
+  }
+}
+
+// Ensure proper sizing on very small screens
+@media (max-width: 480px) {
+  .risk-chart {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .chart-total {
+    font-size: 1rem; // Reduced from 1.2rem
   }
 }
 
@@ -118,7 +136,7 @@
   justify-content: center;
   padding: $spacing-xl;
   color: $color-text-light;
-  font-size: $font-size-sm;
+  font-size: 0.65rem; // Reduced from small size
   
   .loading-spinner {
     width: 20px;

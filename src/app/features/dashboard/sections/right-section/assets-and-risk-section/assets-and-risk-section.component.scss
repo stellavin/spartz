@@ -21,11 +21,14 @@
   grid-template-columns: 1fr 1fr;
   gap: $spacing-lg;
   flex: 1;
+  min-height: 0; // Allow grid items to shrink below content size
 }
 
 .grid-item {
   display: flex;
   flex-direction: column;
+  min-width: 0; // Prevent grid item from overflowing
+  overflow: hidden; // Ensure content doesn't overflow
 }
 
 // Responsive design - stack on small screens
